@@ -1,0 +1,17 @@
+#desplazamiento{
+  border: 2px solid lightgrey;
+  padding: 0.5em;
+  background-color: #f1eeee;
+  font-weight: bold;
+  text-align: center;
+  
+  position: relative;
+}
+
+#desplazamiento .anterior {
+  float: left;
+}
+
+#desplazamiento .siguiente {
+  float: right;
+}
