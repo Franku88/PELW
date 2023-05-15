@@ -1,0 +1,91 @@
+/*Ejercicio 1*/
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans, "lucida grande", tahoma, verdana, sans-serif;
+    font: 11px, black;
+    background-color: white;
+}
+
+/*Ejercicio 2*/
+#intro,
+#supportingText {
+    float: right;
+    width: 80%;
+}
+
+#linkList {
+    width: 20%;
+    float: left;
+    position: absolute; 
+    top: 4em;
+}
+
+#pageHeader h1 {
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #ddd;
+    margin-bottom: -10px; /*Margen negativo para solapar con otros div*/
+    position: relative; 
+}
+
+#pageHeader h2 {
+    padding: 15px;
+    border: 1px solid grey; /*Es necesario el solid para visualizar el borde*/
+    margin-top: 0; /*Para que se junte con el div superior*/
+}
+
+/*Ejercicio 3*/
+#lresources ul{
+    list-style: none;
+    background-color: #9cf;
+}
+
+#lresources a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #036;
+}
+
+#lresources a:hover {
+    background-color: #036;
+    color: #9cf;
+}
+
+#larchives {
+    padding-bottom: 1em;
+}
+
+#larchives ul li:nth-child(1){
+    float: right;
+}
+
+#larchives ul li:nth-child(2){
+    float: left;
+}
+
+#larchives ul li:nth-child(3) {
+    float: right;
+}
+
+/*Ejercicio 4*/
+#lselect ul {
+    list-style-image: url('blue_bullet.gif');
+}
+
+#pageHeader h1 { 
+    background-image: url(css_zen_garden.gif);
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+}
+
+#pageHeader h2 {
+    background-image: url(zen_h2_back.gif);
+    background-position: top;
+    background-color: #489AED;
+    background-repeat: repeat-x;
+}
+
+
+
+
