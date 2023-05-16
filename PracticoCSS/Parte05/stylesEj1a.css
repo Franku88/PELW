@@ -1,0 +1,41 @@
+.contenedor {
+    padding: 0;
+    margin: 0;
+
+    background-color: grey;
+    border: 2px solid lightgray;
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    
+    padding-top: 1em;
+    text-indent: 1em;
+}
+
+#top {    
+    padding:2em;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+#pagina *{
+    height: 800px;
+}
+
+#izquierda {
+    width: 10%;
+    float: left;
+}
+
+#centro {
+    width: 75%;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+#derecha {
+    width: 10%;
+    float: right;
+}

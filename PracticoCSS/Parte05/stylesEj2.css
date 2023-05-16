@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#header, #footer {
+    background-color: #283c6c; 
+    border: 3px solid crimson;
+    color: yellow;
+    padding-bottom: 3em;
+    margin-bottom: 1em;
+}
+
+#nav, #contentinner{
+    border-top: 3px solid crimson;
+    border-bottom: 3px solid crimson;
+    height: 450px;
+    margin-bottom: 1em;
+}
+
+#nav {
+    width: 10%;
+    float: left;
+}
+
+#nav ul {
+    background-color: black;
+    padding: 1em 0 1em 0; /*Grosor de borde interno*/
+    margin: 0; /*Queda pegado al borde superior de nav*/
+}
+
+#nav ul li {
+    background-color:  lightgray;
+    border: 1px grey solid;
+    padding: 0.5em;
+    list-style-type: none;
+    text-align: center;
+}
+
+#contentinner {
+    width: 88%;
+    float: right;
+}

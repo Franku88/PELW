@@ -1,0 +1,35 @@
+.container {
+    padding: 0;
+    margin: 0;
+
+    background-color: gray;
+    border: 2px solid lightgray;
+    
+    text-indent: 1em;
+    padding-top: 1em;
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#top, #pie {
+    padding: 2em;
+}
+
+#content * {
+    height: 600px;
+}
+
+#izquierda {
+    width: 20%;
+    float: left;
+}
+
+#centro {
+    width: 77%;
+    float: right;
+}
+
+#pie {
+    clear: both; /*movido debajo de objetos float*/
+}
