@@ -1,0 +1,279 @@
+
+/* 
+  Instruccion: todos los elementos del body deben tener margen y relleno de 0. Además, el color debe ser #555 y el color de fondo
+  debe ser #f7f7f7 */
+  
+body {
+  font-family: "Lucida Sans", tahoma, "Trebuchet MS", arial, verdana, sans-serif;
+  font-size: 73%;
+  color: #555;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+#banner {
+  height: 150px;
+  padding: 0;
+  background: #f7f7f7;
+  color: #333;
+  background-image: url(images/image00.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#banner h1 {
+  margin: 0;
+  padding: 5px;
+  background-color: transparent;
+  color: white;
+}
+
+#navlist {
+  padding: 4px 5px 5px 0;
+  margin: 0 0 20px 0;
+  text-align: left;
+  letter-spacing: 3px;
+  color: #fff;
+  background: #476042;
+}
+
+#navlist li {
+  list-style: none;
+  margin: 0;
+  display: inline;
+}
+
+#navlist li a {
+  padding: 5px 0.75em;
+  margin: 0;
+  color: #fff;
+  background: #476042;
+  text-decoration: none;
+}
+
+#navlist li a:link {
+  color: #fff;
+  background: #476042;
+}
+
+#navlist li a:visited {
+  color: #fff;
+  background: #476042;
+}
+
+#navlist li a:hover {
+  color: #000;
+  background: #7aba2e;
+}
+
+#navlist li a#current {
+  color: #fff;
+  background: #7aba2e;
+}
+
+.menu ul li {
+  line-height: 1.8em;
+  margin: 0 10px 0 0;
+  padding: 0;
+  list-style-type: square;
+  color: #476042;
+  background: inherit;
+}
+
+.menu ul li a {
+  color: #f17c0b;
+  background: inherit;
+}
+
+.menu ul li a:hover {
+  color: #7aba2e;
+  background: inherit;
+}
+
+/* Instrucion: el elemento #content debe tener relleno 0, margen izquierdo y derecho de 170 pixeles, y bordes izquierdos 
+y derechos de un pixed, dashed y de color #333    */
+#content {
+  color: #555;
+  background-color: #f7f7f7;
+  padding: 0;
+  margin-left: 170px;
+  margin-right: 170px;
+  border-left: 1px dashed #333;
+  border-right: 1px dashed #333;
+}
+
+#content p {
+  margin: 20px;
+}
+
+#sidebar-a {
+  float: left;
+  width: 140px;
+  margin-left: 5px;
+  padding: 0px 5px 0px 5px;
+  color:#666;
+  background-color: #f7f7f7;
+}
+
+/* El elemento sidebar-b debe
+  - flotar a la derecha 
+  - tener un ancho de 140px 
+  - Margin 0 para todos lados excepto derecha donde debe ser 5
+  - color de fondo  #faf8e9;
+
+no modifique padding ni color
+  */
+
+#sidebar-b {
+  padding: 0 5px 15px 5px;
+  color: #333; 
+
+  float: right;
+  width: 140px;
+  margin: 0 5px 0 0;
+  background-color: #faf8e9;
+}
+
+/* 
+Instrumente los medios necesarios para footer quede debajo de los elementos 
+flotantes */
+
+#footer {
+  padding: 5px;
+  margin: 0;
+  background: #476042;
+  color: #f7f7f7;
+  clear: both; 
+}
+
+a {
+  background: inherit;
+  color: #f17c0b;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #aaa;
+  background: inherit;
+}
+
+a img {
+  border: 0;
+}
+
+/* Instruccion: todos los elementos de clase border deberian
+tener un relleno de 10px, un margin de 10px, y un borde sólido de 
+1 pixel de ancho y de color #476042 */
+
+.border {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #476042;
+}
+
+.imgleft {
+  border: 1px solid #90b905;
+  margin: 5px 10px 10px 15px;
+  padding: 5px;
+  float: left;
+}
+
+h1 {
+  padding: 5px;
+  letter-spacing: 3px;
+  color: #476042;
+  margin: 20px;
+  font-size: 150%;
+}
+
+/*
+  Instruccion: agreguie a h2 un tamaño de fuente de 140%
+*/
+
+h2 {
+  padding-left: 20px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: #476042;
+  background: inherit;
+  font-size: 140%;
+}
+
+h3 {
+  padding: 5px;
+  text-transform: uppercase;
+  font-size: 110%;
+  color: #fff;
+  background: #476042;
+}
+
+h4 {
+  padding: 5px;
+  text-transform: uppercase;
+  font-size: 110%;
+  color: #fff;
+  background: #f17c0b;
+}
+
+blockquote {
+  font-weight: bold;
+  font-style: italic;
+  color: #b29b35;
+}
+
+.clear {
+  clear: both;
+  width: 100%;
+}
+
+.col3,
+.col3center {
+  float: left;
+  width: 30.5%;
+}
+
+.col3center {
+  margin: 0 3%;
+}
+
+#container {
+  width: 99.5%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  line-height: 1.5em;
+}
+
+.formulario {
+  margin-left: 3%;
+  margin-bottom: 2%;
+  width: 30%;
+  height: 110px;
+
+}
+
+.formulario .form1 {
+  float: left;  
+}
+
+label {
+  font-weight: bold;
+  display: inline-block;
+  width: 115px;
+}
+
+.formulario input, .formulario textarea {
+  background-color: #FAF8E9;
+  border-color: lightgray;
+}
+
+.formulario .text{
+  width: 200px;
+  margin-bottom: 5px;
+}
+
+.formulario .button{
+  width: 100px;
+}
