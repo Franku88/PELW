@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+</head>
+<body>
+    <script type="text/javascript">
+        var nom, ape, estadoCiv, edad, fechaNac, dni, mostrar;
+        nom = prompt("Ingrese su nombre", "-");
+        ape = prompt("Ingrese su apellido", "-");
+        estadoCiv = prompt("Ingrese su estado civil", "-");
+        edad = prompt("Ingrese su edad", "-");
+        fechaNac = prompt("Ingrese su fecha de nacimiento","-");
+        dni = prompt("Ingrese su dni","-");
+        mostrar = confirm("¿Desea imprimir sus datos?");
+        if (mostrar) {
+            document.write("Datos Personales<br/>"+
+            "Nombre: "+nom+"<br/>"+
+            "Apellido: "+ape+"<br/>"+
+            "Estado Civil: "+estadoCiv+"<br/>"+
+            "Edad: "+edad+"<br/>"+
+            "Fecha de Nacimiento: "+fechaNac+"<br/>"+
+            "DNI: "+dni+"<br/>");
+        } else {
+            document.write("¡Vuelva pronto!");    
+        }
+    </script>
+</body>
+</html>
