@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .subrayado {
+      text-decoration: underline;
+    }
+  </style>
+  <script type="text/javascript">
+    function ocultaEstilo(identificacion, estilo) {
+        var elemento = document.getElementById(identificacion);
+        elemento.classList.toggle(estilo);
+    }
+  </script>
+</head>
+<body>
+  <p id="miTexto" onclick="ocultaEstilo('miTexto','subrayado')">Texto sin subrayar</p>
+</body>
+</html>
