@@ -1,0 +1,21 @@
+<!-- TODO:
+- Ejecutar la página y observar el orden de los eventos
+-->
+<html>
+<head>
+<script type="text/javascript">
+function alert1(texto){
+	i++;
+	salida.value+=i+" "+texto+"\n";
+	}
+</script>
+</head>
+<body onload="alert1('onload')" onunload="alert('onunload')"
+	onresize="alert1('onresize')" onkeydown="alert1('onkeydown')"
+	onkeypress="alert1('onkeypress')" onkeyup="alert1('onkeyup')">
+<script type="text/javascript">
+var i=0;
+</script>
+<textarea rows="20" cols="20" id="salida"></textarea>
+</body>
+</html>

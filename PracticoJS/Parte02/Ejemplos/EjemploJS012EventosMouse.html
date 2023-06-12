@@ -1,0 +1,27 @@
+<!-- TODO:
+- Ejecutar la p�gina y observar el orden de los eventos
+-->
+<html>
+
+<head>
+	<script type="text/javascript">
+		function alert1(texto) {
+			i++;
+			salida.value += i + " " + texto + "\n";
+		}
+	</script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var i = 0;
+	</script>
+	<button onclick="alert1('onclick')">onclick</button>
+	<button ondblclick="alert1('ondblclick')">ondblclick</button>
+	<button onmouseover="alert1('onmouseover')" onmouseup="alert1('onmouseup')" onmouseout="alert1('onmouseout')"
+		onmousedown="alert1('onmousedown')" onmousemove="alert1('onmousemove')">onmouseRESTO</button>
+
+	<textarea rows="20" cols="20" id="salida"></textarea>
+</body>
+
+</html>

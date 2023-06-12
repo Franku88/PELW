@@ -1,0 +1,27 @@
+<!-- TODO:
+- Ejecutar la página y observar el orden de los eventos
+-->
+<html>
+<head>
+<script type="text/javascript">
+function alert1(texto){
+	i++;
+	salida.value+=i+" "+texto+"\n";
+	}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+var i=0;
+</script>
+<form action="" onsubmit="alert('onsubmit')" onreset="alert1('onreset')">
+input text <input type="text" onblur="alert1('onblur')"
+			onchange="alert1('onchange')" onfocus="alert1('onfocus')"
+			onselect="alert1('onselect')"> <br>
+<input type="submit">
+<input type="reset">
+
+</form>
+<textarea rows="20" cols="20" id="salida"></textarea>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- TODO:
+- Modificar el valor de las variables
+ -->
+<html>
+<head>
+<script type="text/javascript">
+function ejecutar(sentencia){
+	eval(sentencia); //evalua el contenido de la variable sentencia
+	document.write(sentencia+"  Valor de x="+x+" Valor de y="+y+"<br>");
+	}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	var x,y;
+	/**
+	Operaciones de asignación
+	*/
+	ejecutar("y=5;x=2;");
+	ejecutar("x=++y;");
+	ejecutar("x=y++;");
+	ejecutar("x=--y;");
+	ejecutar("x=y--;");
+	ejecutar("x+=y;");
+	ejecutar("x*=y;");
+	ejecutar("x/=y;");
+	ejecutar("x%=y;");
+
+</script>
+
+</body>
+</html>

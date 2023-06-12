@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="EjJavaScript005.js"></script>
+        <script type="text/javascript">
+            function imprimeParesMenoresA(num) {
+                var p = document.getElementById("parrafo1");
+                for (var i = 0; i < num; i+=2) {
+                    p.textContent += " "+i;
+                }
+            }
+
+            function resultadosDeF(n) {
+                var p = document.getElementById("parrafo2");
+                for (var i = 0; i < n; i++) {
+                    p.textContent += " " + f(i);
+                }
+            }
+
+            function f(x) {
+                var result;
+                result = -cuadrado(x) + (3*x) + 5;
+                return result;
+            }
+
+            function listarPrimos(list, n) {
+                for (var i = 0; i < n; i++) {
+                    if (esPrimo(i)) {
+                        var li = document.createElement("li");
+                        li.textContent =""+i;
+                        list.appendChild(li);
+                    }
+                }
+            }
+
+            function esPrimo(num) {
+                var exito = true;
+                if (num == 1) {
+                    exito = false;
+                }
+                for (var i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i == 0) {
+                        exito = false;
+                    }
+                }
+                return exito;
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>Números pares</h1>
+            <p id="parrafo1"></p>
+        </div>
+
+        <div>
+            <h1>Resultados de f(x) = – x^2 + 3*x + 5</h1>
+            <p id="parrafo2"></p>
+        </div>
+
+        <div>
+            <h1>Lista de Números Primos</h1>
+            <ul id="lista-primos"></ul>
+        </div>
+
+        <script>
+            imprimeParesMenoresA(500);
+            resultadosDeF(100);
+            listarPrimos(document.getElementById("lista-primos"), 100);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript"> 
+        function recorreFor() {
+            //Obtengo lista a ser insertada
+            var lista = document.getElementById("lista-meses1");
+            for (var i = 0; i < meses.length; i++) {
+                //Creo un elemento de la lista a insertar
+                var li = document.createElement("li");
+                //Agrego texto desde array hacia elemento a insertar
+                li.appendChild(document.createTextNode(meses[i]));
+                //Inserto elemento a lista
+                lista.appendChild(li);
+            }
+        }
+
+        function recorreWhile() {
+            //Obtengo lista a ser insertada
+            var lista = document.getElementById("lista-meses2");
+            var i = 0;
+            while (i < meses.length) {
+                //Creo un elemento de la lista a insertar
+                var li = document.createElement("li");
+                //Agrego texto desde array hacia elemento a insertar
+                li.appendChild(document.createTextNode(meses[i]));
+                //Inserto elemento a lista
+                lista.appendChild(li);
+                i++;
+            }
+        }
+
+        function recorreDoWhile() {
+            //Obtengo lista a ser insertada
+            var lista = document.getElementById("lista-meses3");
+            var i = 0;
+            do {
+                //Creo un elemento de la lista a insertar
+                var li = document.createElement("li");
+                //Agrego texto desde array hacia elemento a insertar
+                li.appendChild(document.createTextNode(meses[i]));
+                //Inserto elemento a lista
+                lista.appendChild(li);
+                i++;
+            } while (i < meses.length);
+        }
+
+        function recorreForIn() {
+            //Obtengo lista a ser insertada
+            var lista = document.getElementById("lista-meses4");
+            for (i in meses) {
+                //Creo un elemento de la lista a insertar
+                var li = document.createElement("li");
+                //Agrego texto desde array hacia elemento a insertar
+                li.appendChild(document.createTextNode(meses[i]));
+                //Inserto elemento a lista
+                lista.appendChild(li);
+            }
+        }
+
+        </script>
+    </head>
+    <body>
+        <h1>Meses For</h1>
+        <ul id="lista-meses1"></ul>
+        
+        <h1>Meses While</h1>
+        <ul id="lista-meses2"></ul>
+
+        <h1>Meses Do While</h1>
+        <ul id="lista-meses3"></ul>
+
+        <h1>Meses For In</h1>
+        <ul id="lista-meses4"></ul>
+
+        <script>
+            var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            recorreFor();
+            recorreWhile();
+            recorreDoWhile();
+            recorreForIn();
+        </script>
+        
+    </body>
+</html>

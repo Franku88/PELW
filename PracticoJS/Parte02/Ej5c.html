@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="EjJavaScript005.js"></script>
+        <script type="text/javascript"> 
+            function pesoADolar() {
+                var x;
+                x = parseInt(prompt("Ingrese un valor en AR$", 0));
+                result = multiplicacion(x, 0.0041);
+                salida.value += ("AR$ "+x+" <-> U$D "+result+"\n");
+            }
+            
+            function dolarAPeso() {
+                var x;
+                x = parseInt(prompt("Ingrese un valor en U$D", 0));
+                result = multiplicacion(x, 244.88);
+                salida.value += ("U$D "+x+" <-> AR$ "+result+"\n");
+            }
+            
+            function pesoAReal() {
+                var x;
+                x = parseInt(prompt("Ingrese un valor en AR$", 0));
+                result = multiplicacion(x, 0.020);
+                salida.value += ("AR$ "+x+" <-> R$ "+result+"\n");
+            }
+            
+            function realAPeso() {
+                var x;
+                x = parseInt(prompt("Ingrese un valor en R$", 0));
+                result = multiplicacion(x, 50.18);
+                salida.value += ("R$ "+x+" <-> AR$ "+result+"\n");
+            }
+            
+            function pesoAEuro() {
+                var x;
+                x = parseInt(prompt("Ingrese un valor en AR$", 0));
+                result = multiplicacion(x, 0.0038);
+                salida.value += ("AR$ "+x+" <-> € "+result+"\n");
+            }
+            
+            function euroAPeso() {
+                var x;
+                x = parseInt(prompt("Ingrese un valor en €", 0));
+                result = multiplicacion(x, 263.01);
+                salida.value += ("€ "+x+" <-> AR$ "+result+"\n");
+            }     
+        </script>
+        <title>Conversor Monetario</title>
+    </head>
+    <body>
+        <div> 
+            <button onclick="pesoADolar()">Pesos a Dolares</button>
+            <button onclick="dolarAPeso()">Dolares a Pesos</button>
+            <button onclick="pesoAReal()">Pesos a Reales</button>
+            <button onclick="realAPeso()">Reales a Pesos</button>
+            <button onclick="pesoAEuro()">Pesos a Euros</button>
+            <button onclick="euroAPeso()">Euros a Pesos</button>
+        </div>
+        <textarea cols="50" rows="20" id="salida"></textarea>
+
+    </body>
+</html>

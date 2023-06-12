@@ -1,0 +1,28 @@
+<!-- TODO:
+- hacer funcion resta y agregar un link resta que ejecute esta función
+-
+ -->
+<html>
+<head>
+	<script type="text/javascript">
+		/*función suma: pide al usuario dos valores via prompt
+		e imprime en el textarea suma la salida de la suma */
+		function suma(){
+			var n1,n2,suma,salida; // Declaración de Variables Locales
+			n1=prompt('valor1=',0);
+			n2=prompt('valor2=',0);
+			suma=parseInt(n1)+parseInt(n2);
+			salida=document.getElementById("salida");
+			salida.value+=n1+'+'+n2+'='+suma+'\n'; //agrega al text area el relsultado de la suma
+		}
+	</script>
+</head>
+<body>
+<!-- El tag a (Suma) esta vinculado a la funcion suma -->
+<button onclick="suma()">Sumar</button>
+
+<h2> Resultados</h2>
+
+<textarea id="salida" name="salida" rows="10" cols="50"></textarea>
+</body>
+</html>

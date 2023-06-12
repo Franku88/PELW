@@ -1,0 +1,39 @@
+<!-- TODO:
+- Agregar mas tipos de Nacionalidades
+- Si la edad es entre 30 y 40 imprimir el mensaje.... -->
+<html>
+<body>
+<script type="text/javascript">
+	var edad;
+	var pais;
+	if (confirm('Continua')){
+		edad = prompt('Ingrese su edad',0);
+		if (edad<20){
+			document.write('usted es menor de 20<br>');
+		}else if(edad<30){
+			document.write('usted es mayor de 20 y menor de 30<br>');
+		}else{
+			document.write('usted es mayor de 30<br>');
+		}
+		pais=prompt('Ingrese su pais de nacimiento','Argentina');
+		switch (pais){
+			case 'Argentina':
+				document.write('usted es Argentino<br>');
+			break;
+			case 'Chile':
+				document.write('usted es Chileno<br>');
+			break;
+			case 'Brasil':
+				document.write('usted es Brasilero<br>');
+			break;
+			default:
+				document.write('usted es de un pais desconocido<br>');
+			}
+
+	}else{
+		document.write('usted cancelo');
+	}
+
+</script>
+</body>
+</html>

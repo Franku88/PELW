@@ -1,0 +1,32 @@
+<!-- TODO:
+- Listar los dias de la semana en orden inverso con todos los tipos de bucles
+-->
+<html>
+<body>
+<script type="text/javascript">
+	var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+	var i;
+	document.write('for<br>');
+	for(i=0;i<7;i++){
+		document.write(dias[i]);
+	}
+	document.write('<br>while<br>');
+	i=0;
+	while(i<7){
+		document.write(dias[i]);
+		i++;
+	}
+	document.write('<br>do while<br>');
+	i=0;
+	do{
+		document.write(dias[i]);
+		i++;
+	}while(i<7);
+	document.write('<br>for in<br>');
+	for(i in dias){
+		document.write(dias[i]);
+	}
+
+</script>
+</body>
+</html>

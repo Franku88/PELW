@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="EjJavaScript005.js"></script>
+        <script type="text/javascript"> 
+            function alertaSuma() {
+                var x, y, result;
+                x = parseInt(prompt("Ingrese x", 0));
+                y = parseInt(prompt("Ingrese y", 0));
+                result = suma(x, y);
+                salida.value += (x + " + " + y + " = " + result + "\n");
+            }
+
+            function alertaResta() {
+                var x, y, result;
+                x = parseInt(prompt("Ingrese x", 0));
+                y = parseInt(prompt("Ingrese y", 0));
+                result = resta(x, y);
+                salida.value += (x + " - " + y + " = " + result + "\n");
+            }
+
+            function alertaMultiplicacion() {
+                var x, y, result;
+                x = parseInt(prompt("Ingrese x", 0));
+                y = parseInt(prompt("Ingrese y", 0));
+                result = multiplicacion(x, y);
+                salida.value += (x + " * " + y + " = " + result + "\n");
+            }
+
+            function alertaDivision() {
+                var x, y, result;
+                x = parseInt(prompt("Ingrese x", 0));
+                y = parseInt(prompt("Ingrese y", 1));
+                result = division(x, y);
+                salida.value += (x + " / " + y + " = " + result + "\n");
+            }
+            
+            function alertaCuadrado() {
+                var x, result;
+                x = parseInt(prompt("Ingrese x", 0));
+                result = cuadrado(x);
+                salida.value += (x + " ^ 2 = " + result + "\n");
+            }
+            
+            function alertaPotencia() {
+                var x, y, result;
+                x = parseInt(prompt("Ingrese x", 0));
+                y = parseInt(prompt("Ingrese y", 0));
+                result = potencia(x, y);
+                salida.value += (x + " ^ " + y + " = " + result + "\n");
+            }
+        </script>
+        <title> Calculadora </title>
+    </head>
+    <body>
+        <div> 
+            <button onclick="alertaSuma()">Sumar</button>
+            <button onclick="alertaResta()">Restar</button>
+            <button onclick="alertaMultiplicacion()">Multiplicar</button>
+            <button onclick="alertaDivision()">Dividir</button>
+            <button onclick="alertaCuadrado()">Al Cuadrado</button>
+            <button onclick="alertaPotencia()">Potenciar</button>
+        </div>
+        <div>
+            <p><b>Resultados</b></p>
+            <textarea rows="20" cols="20" id="salida"></textarea>
+        </div>
+    </body>
+</html>

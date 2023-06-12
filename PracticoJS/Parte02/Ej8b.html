@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista con elementos ocultables</title>
+  <style>
+    .oculto {
+      display: none;
+    }
+  </style>
+  <script>
+    function toggleElement(elementId) {
+      var elemento = document.getElementById(elementId);
+      elemento.classList.toggle("oculto");
+    }
+  </script>
+</head>
+<body>
+  <h1>Lista con elementos ocultables</h1>
+  <ul>
+    <li>
+        <a href="#" onclick="toggleElement('elemento1'); return false;">Elemento 1</a>
+        <div id="elemento1" class="oculto">
+            Contenido del Elemento 1
+        </div>
+    </li>
+    <li>
+        <a href="#" onclick="toggleElement('elemento2'); return false;">Elemento 2</a>
+        <div id="elemento2" class="oculto">
+            Contenido del Elemento 2
+        </div>
+    </li>
+    <li>
+        <a href="#" onclick="toggleElement('elemento3'); return false;">Elemento 3</a>
+        <div id="elemento3" class="oculto">
+            Contenido del Elemento 3
+        </div>
+    </li>
+  </ul>
+</body>
+</html>
+<!-- Sin terminar -->

@@ -1,0 +1,22 @@
+<!-- TODO:
+- Modificar el innerHTML de el parrafo p1
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>TITULO</title>
+</head>
+<body>
+<p id="p1"  >parrafo 1</p>
+<p id="p2">parrafo 2</p>
+	<script type="text/javascript">
+		var parrafos= document.getElementsByTagName("p");
+		for(var i=0; i<parrafos.length; i++)
+				alert(parrafos[i].innerHTML);
+
+		var parrafo1= document.getElementById("p1");
+		parrafo1.style.textAlign="center";
+	</script>
+</body>
+</html>

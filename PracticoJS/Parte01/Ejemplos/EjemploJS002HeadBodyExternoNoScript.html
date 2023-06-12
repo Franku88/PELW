@@ -1,0 +1,33 @@
+<!-- :TODO
+- Modificar los mensajes de alert en head, body y externo
+- Modificar el mensaje en caso de no estar habilitado el código javascript
+-->
+<html>
+  <head>
+    <script type="text/javascript">
+     // funciones que son llamadas desde el body
+     function enHead(){
+     	alert("en Head")
+     	}
+    </script>
+    <script type="text/javascript" src="EjemploJS002HeadBodyExterno.js">
+     // librería de funciones que son utilizadas en varias páginas
+    </script>
+  </head>
+  <body onload="enHead();enExterno()">
+  	<noscript>
+  		mensaje: activar script.
+  			En firefox. Menu: Herramientas/Opciones/Contenido/Habilitar JavaScript
+  			<br>
+  			En ie. ....
+  			<br>
+  			En ....
+  			<br>
+  	</noscript>
+    <script type="text/javascript">
+     // captura de eventos, HTML dinámico, etc..
+     alert("en Body");
+    </script>
+    Contenido HTML
+  </body>
+</html>
