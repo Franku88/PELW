@@ -1,5 +1,30 @@
 function validar() {
+    //Metodo que al realizar el submit, hace las comprobaciones necesarias
+    //Verifica input de nombre
+    verificaInputTexto(document.getElementById("nombre"));
+    //Verifica input de apellido
+    verificaInputTexto(document.getElementById("apellido"));
+    //Verifica input de obra social
+    verificaInputTexto(document.getElementById("obras_sociales"));
+}
 
+function verificaInputTexto(input) {
+    //Verifica el contenido de un input de texto
+    var verifTexto = (input.value.trim() != "");
+    //Depende el caso, cambia color de border
+    if (verifTexto) {
+        notificaOk(input);
+    } else {
+        notificaError(input);
+    }
+}
+
+function notificaError(input) {
+    input.style.borderColor = "red";
+}
+
+function notificaOk(input) {
+    input.style.borderColor = "green";
 }
 
 function esEnteroPositivo(num) {
@@ -49,6 +74,7 @@ function esFechaNacimientoValida(dia, mes, anio) {
             if (anio == anioActual) { //Si estamos en el mismo anio
                 if (mes <= mesActual) { //Si mes no es mayor al actual
                     valida = dia <= diaActual; //Verifica que el dia no sea mayor al actual
+                    notificaError();
                 } else { //mes mayor al actual con anio igual al actual, no sucedio nacimiento
                     valida = false;
                 }
@@ -61,6 +87,31 @@ function esFechaNacimientoValida(dia, mes, anio) {
 }
 
 function esEmailValido(email) {
+    var valido;
+    indiceArroba = email.indexOf("@");
+    if (indiceArroba > 0) {
+        var user, dominio;
+        user = email.substring(0,indiceArroba);
+        if (validarUserMail(user)) {
+            dominio = email.substring(indiceArroba+1, email.length);
+            valido = validarDominioMail(dominio);
+        }
+        
 
+    } else {
+        valido = false;
+    }
+    return valido;
 }
 
+function validarUserMail(userMail) {
+    //Retorna verdadero si userMail cumple con la expresion regular ex
+    var ex = /^[A-Za-z0-9+_.-]+(?<!\.)$/;
+    return ex.test(userMail);
+}
+
+function validarDominioMail(dominioMail) {
+    //Retorna verdadero si dominioMail cumple con la expresion regular ex
+    var ex = /^[A-Za-z0-9.-]+(?<!\.)\.[A-Za-z]+$/;
+    return ex.test(dominioMail);
+}
