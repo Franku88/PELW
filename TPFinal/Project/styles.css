@@ -4,10 +4,16 @@
     color: #d3d5d1;
 }
 
+html {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
 body {
     font-family: Verdana, Tahoma, Geneva, Verdana, sans-serif;
     font-size: 80%;
     background-color: #4c5945;
+    
 }
 
 a {
@@ -19,9 +25,7 @@ a:hover {
     font-weight: bold;
 }
 
-header, main { /*Estilo de contenedores principales*/
-    margin-bottom: 1em;
-}
+/*Encabezado, pie y sus contenidos*/
 
 .borde_activo {
     border-top: 2px #31382a solid;
@@ -154,48 +158,50 @@ header, main { /*Estilo de contenedores principales*/
     height: 40px;
 }
 
-footer { /*Deja al footer siempre en el borde inferior de la pagina*/
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
-}
-
 .navbot {
-    padding: 1em;
+    margin: 0.2em;
+    padding: 5px;
     display: flex;
     align-items: center;
 }
 
 .navbot__links {
-    position: absolute;
-    left: 0.5em;;
+    margin: 2px auto 2px 2px;
+    padding: 6px;
+}
+
+.navbot__link {
+    margin: 5px;
 }
 
 .navbot__iconlinks {
-    position: absolute;
-    right: 0.5em;
+    margin: 0 0.05em 0 auto;
+    font-size: 1.3em;
+    padding: 4px 2px 2px 2px;
 }
 
 .navbot__iconlinks a {
     color: #d3d5d1;
 }
 
+
+
+
+/*Contenido*/
+
 p {
     margin: 1em;
 }
 
 main {
-    display: flex;
+    margin: 1em 0 1em 0;   
 }
 
 .sidebar__top {
-    
-    width: 100%;
+    width: 33%;
 }
 
 .sidebar__left {
-    
     width: 33%;
 }
 
