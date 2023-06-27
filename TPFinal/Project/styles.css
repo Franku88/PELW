@@ -55,8 +55,8 @@ header, main { /*Estilo de contenedores principales*/
 }
 
 .navtop__logo {
-    max-width: 13em;
-    width: 10em;
+    max-width: 12em;
+    width: auto;
 }
 
 .navtop__logo a { /*Estilo del logo indice*/
@@ -72,60 +72,68 @@ header, main { /*Estilo de contenedores principales*/
 .navtop__icon {
     width: 40%;
     height: 40%;
+    margin: 0.5em
 }
 
 .navtop__icontext {
-    width: 50%;
+    margin: 0.5em;
+    width: auto;
     color: black;
 }
 
 .navtop__links {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto auto 0.5em 0.5em;
+    margin: auto 0.5em 0 0.5em;
 }
 
 .navtop__link {
-    margin-left: auto;
-    margin-right: 0.5em;
-    color: inherit;
-    padding: 3px;
+    margin: 0.5em;
+    padding: 4px;
 }
 
 .navtop__form {
-    width: 21%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0.5em auto 0.5em auto;
 }
 
 .navtop__form form {
     display: flex;
     align-items: center;
-    float: right;
+    margin: 0.5em;
 }
 
 .navtop__form .buscar {
     font-family: inherit;
-    background-color: #4c5945;
+    background-color: inherit;
     height: 2em;
-    
     outline: none; /*Borde al seleccionar search*/
 }
- 
+
+.navtop__form .buscar::placeholder {
+    color:inherit;
+}
+
+.navtop__form .buscar::-webkit-search-cancel-button {
+    display: none;
+}
+
 .navtop__form .boton {
-    width: 15%;
-    height: auto;
-    max-height: 3em;
-    max-width: 3em;
+    height: 20px;
+    width: auto;
     padding: 0 0.5em 0 0.5em;
 }
 
-.navtop__profile {
-    padding: 2px;
+.navtop__myprofile {
+    display: flex;
+    align-items: center;
+    margin: 0.5em;
 }
 
-.navtop__profile a {
+.navtop__myprofile a {
+    margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.navtop__myprofile__text {
+    padding: 3px;
     border-top: 2px #737770 solid;
     border-left: 2px #737770 solid;
     border-bottom: 2px #31382a solid;
@@ -133,13 +141,17 @@ header, main { /*Estilo de contenedores principales*/
     background-color: #4c5945;
 }
 
-.navtop__profile a:hover {
+.navtop__myprofile__text:hover {
     border-top: 2px #31382a solid;
     border-left: 2px #31382a solid;
     border-bottom: 2px #737770 solid;
     border-right: 2px #737770 solid;
     background-color: #3f4737;
     font-weight:initial;
+}
+
+.navtop__myprofile img {
+    height: 40px;
 }
 
 footer { /*Deja al footer siempre en el borde inferior de la pagina*/
@@ -163,4 +175,40 @@ footer { /*Deja al footer siempre en el borde inferior de la pagina*/
 .navbot__iconlinks {
     position: absolute;
     right: 0.5em;
+}
+
+.navbot__iconlinks a {
+    color: #d3d5d1;
+}
+
+p {
+    margin: 1em;
+}
+
+main {
+    display: flex;
+}
+
+.sidebar__top {
+    
+    width: 100%;
+}
+
+.sidebar__left {
+    
+    width: 33%;
+}
+
+.main__content {
+    width: 33%;
+}
+
+.sidebar__right {
+    
+    width: 33%;
+}
+
+.sidebar__bottom {
+
+    width: 33%;
 }
