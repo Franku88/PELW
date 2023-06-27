@@ -40,7 +40,7 @@ a:hover {
     border-left: 2px #737770 solid;
     border-bottom: 2px #31382a solid;
     border-right:  2px #31382a solid;
-    background-color: #4c5945;
+    background-color: #4c5844;
 }
 
 .navtop {
@@ -54,7 +54,7 @@ a:hover {
 }
 
 .navtop__links a:hover {
-    color: #4c5945;
+    color: #4c5844;
     background: #d3d5d1;
 }
 
@@ -142,7 +142,7 @@ a:hover {
     border-left: 2px #737770 solid;
     border-bottom: 2px #31382a solid;
     border-right:  2px #31382a solid;
-    background-color: #4c5945;
+    background-color: #4c5844;
 }
 
 .navtop__myprofile__text:hover {
