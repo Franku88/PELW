@@ -24,9 +24,9 @@
                 <a href="pages/contacto.html" class="navtop__link borde_inactivo">Contacto</a>
             </div>
             <div class="navtop__form">
-                <form>
-                    <input class="buscar" type="search" name="buscar" placeholder="Buscar" autocomplete="off">
-                    <input class="boton" type="image" name="buscar" alt="Buscar" src="images/lupaicon.png">
+                <form id="miFormulario">
+                    <input type="search" class="buscar" placeholder="Buscar" id="buscar" autocomplete="off" onsubmit="return buscar();">
+                    <input type="image" class="boton" alt="Buscar" src="images/lupaicon.png" onclick="return buscar();">
                 </form>
             </div>
             <div class="navtop__myprofile">
@@ -85,5 +85,6 @@
     </footer>
     
 </body>
+
 </html>
 

@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Parcial JS </title>
+  <link href="default.css" rel="stylesheet" type="text/css" />
+
+  <script>
+    // Resuelva el parcial en esta seccion
+    // Ud. puede usar o no esta variable. No es obligatorio.
+
+    var RegistroVotantes = new Array();
+
+    // https://www.w3schools.com/jsref/jsref_push.asp
+
+    function imprimeVotantes() {
+      //Imprime los votantes
+      var cadVotantes = "";
+      for (var i = 0; i < RegistroVotantes.length; i++) {
+        cadVotantes = cadVotantes  + RegistroVotantes[i] + " - ";
+      }
+      var divVotantes = document.getElementById("Votantes");
+      divVotantes.innerHTML = cadVotantes;
+    }
+    
+    function registrar() {
+      //Si datos son correctos, registra un punto al candidato correspondiente
+      var inputCand = document.getElementById("txCandidato");
+      var inputDni = document.getElementById("txDNI");
+      var inputSexo = document.getElementById("txSexo");
+      
+      var valido = validar(inputCand, inputDni, inputSexo);
+      if (valido) {
+        var voto = !haVotado(inputDni);
+        if (voto) {
+          darPunto();
+          RegistroVotantes.push(inputDni.value.trim());
+        } else {
+          notificaError(inputDni);
+          alert("Esta persona ya emitió su voto. El fraude está mal claro que sí");
+        }
+      }
+      (document.getElementById("myForm")).reset();
+      imprimeVotantes();
+    } 
+
+    function validar(inputCand, inputDni, inputSexo) {
+      //Verica que el candidato y sexo sean validos, y verifica que el dni sea de 8 cifras y no haya votado
+      var cand = verificarCandidato(inputCand);
+      var dni = verificarRangoDni(inputDni);
+      var sexo = verificarSexo(inputSexo);
+      return (cand && dni && sexo);
+    }
+
+    function verificarCandidato(input) {
+      //Verifca que exista el candidato ingresado
+      var texto = input.value.trim().toLowerCase();
+      var found = false;
+      if (texto != "") {
+        var candidatos = ["kodos", "kang", "blanco"];
+        var i = 0;
+        while (!found && i < candidatos.length) {
+          found = candidatos[i] == texto;
+          i++;
+        }
+      }
+
+      if (!found) {
+        notificaError(input);
+      }
+
+      return found;
+    }
+
+    function verificarRangoDni(input) {
+      //Verifica si el dni ingresado es valido
+      var valido = false;
+      var num = input.value.trim();
+      if (!Number.isNaN(parseInt(num))) {
+        valido = num.length == 8;
+      }
+
+      if (!valido) {
+        notificaError(input);
+      }
+
+      return valido;
+    }
+
+
+    function haVotado(input) {
+      //Verifica si un dni ha votado
+      var num = input.value.trim();
+      var found = false; 
+      var i = 0;
+      while (i < RegistroVotantes.length && !found) {
+        found = (RegistroVotantes[i] == num);
+        i++;
+      }
+      return found;
+    }
+
+    function verificarSexo(input) {
+      //Verifica si el sexo ingresado es correcto
+      var letra = (input.value.trim()).toUpperCase();
+      var found = letra == "M" || letra == "F";
+
+      if (!found) {
+        notificaError(input);
+      }
+
+      return found;
+    }
+
+    function notificaError(input) {
+        //Cambia de color del borde de un input durante un tiempo determinado
+        var bordeOriginal = input.style.borderColor;
+        var fondoOriginal = input.style.backgroundColor;
+        input.style.borderColor = "red";
+        input.style.backgroundColor = "#FFC0CB";
+        setTimeout(function() {
+            input.style.borderColor = bordeOriginal;
+            input.style.backgroundColor = fondoOriginal;
+        }, 1500);
+    }
+
+    function darPunto() {
+      //Suma un punto al candidato elegido
+      var inputCand = document.getElementById("txCandidato");
+      var texto = inputCand.value.trim().toLowerCase();
+      switch(texto) {
+        case "kang":
+            var divPuntos = document.getElementById("ResultadosKang");
+            var puntos = divPuntos.textContent;
+            divPuntos.innerHTML = (parseInt(puntos) + 1);
+          break;
+        case "kodos":
+            var divPuntos = document.getElementById("ResultadosKodos");
+            var puntos = divPuntos.textContent;
+            divPuntos.innerHTML = parseInt(puntos) + 1;
+          break;
+        case "blanco":
+            var divPuntos = document.getElementById("ResultadosBlanco");
+            var puntos = divPuntos.textContent;
+            divPuntos.innerHTML = parseInt(puntos) + 1;
+          break;
+        default:
+          break;
+      }
+    }
+
+    function cerrar() {
+      //Muestra al ganador
+
+      //Div de resultados
+      var divResultados = document.getElementById("dResultados");
+
+      var divPuntosKang = document.getElementById("ResultadosKang");
+      var puntosKang = parseInt(divPuntosKang.textContent);
+
+      var divPuntosKodos = document.getElementById("ResultadosKodos");
+      var puntosKodos = parseInt(divPuntosKodos.textContent);
+      
+      if (puntosKang == puntosKodos) {
+        divResultados.innerHTML = "Empate";
+      } else {
+        if (puntosKang > puntosKodos) {
+          divResultados.innerHTML = "Ganó KANG por "+(puntosKang - puntosKodos)+" votos!" + '<img src="images/VoteKang.png"/>';
+        } else {
+          divResultados.innerHTML = "Ganó KODOS por "+(puntosKodos - puntosKang)+" votos!" + '<img src="images/VoteKodos.png"/>';
+        }
+      }
+
+      var botones = document.querySelectorAll('.input');
+
+      for (var i = 0; i < botones.length; i++) {
+        botones[i].disabled = true; 
+      }
+
+      divResultados.style.display = "block";
+    }
+    
+    
+
+  </script>
+
+
+</head>
+
+<body>
+  <div id="header">
+    <div id="logo" style="margin-left: 15px">
+      <h1><a href="#">Programación Estática y Laboratorio Web</a></h1>
+      <h2><a href="#">Parcial JS - 27/06/2023</a></h2>
+    </div>
+  </div>
+  <div id="menu">
+    <ul>
+      <li><a href="Consigna.html">Consigna</a></li>
+      <li><a href="EjercicioJSParcial.html">HOJA Ejercicio</a></li>
+    </ul>
+  </div>
+  <div id="content">
+
+    <form id="myForm">
+      <table style="padding: 10px;">
+        <tr>
+          <td>Candidato:</td>
+          <td><input id="txCandidato" class="input" name="txCandidato" type="text" style="width:280px" /></td>
+        </tr>
+        <tr>
+          <td>DNI:</td>
+          <td><input id="txDNI" class="input" name="txDNI" type="text" style="width:280px" /></td>
+        </tr>
+        <tr>
+          <td>Sexo:</td>
+          <td><input id="txSexo" class="input" name="txSexo" type="text" style="width:64px" /></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><input type="button" class="input" value="Registrar" onclick="registrar();">&nbsp;<input type="button" class="input" value="Cierre de mesa" onclick="cerrar();"></td>
+        </tr>
+
+      </table>
+    </form>
+    <p></p>
+
+    <div id="dResultados" style="display: none;">
+      <h2>Resultados:</h2>
+      <!-- Ingrese aquí quien gano, por cuantos votos, y su imagen-->
+    </div>
+
+
+    <div style="background-color: lightblue; border: 1px solid black;padding: 10px;">
+      <span id="ResultadosKang" style="font-size: 72px;">0</span>
+      <img src="images/VoteKang.png" height="80" style="float:right">
+
+    </div>
+    <br />
+
+    <div style="background-color: lightpink; border: 1px solid black;padding: 10px;">
+      <span id="ResultadosKodos" style="font-size: 72px;">0</span>
+      <img src="images/VoteKodos.png" height="80" style="float:right">
+
+    </div>
+    <br />
+
+    <div style="padding: 10px;">
+      <span style="font-size: 36px;">En Blanco: </span> <span id="ResultadosBlanco" style="font-size: 36px;">0</span>
+    </div>
+
+    <br />
+
+    Votantes:
+    <div id="Votantes" style="border: 1px solid black;padding: 10px;">
+      
+
+    </div>
+
+
+    </table>
+
+  </div>
+  <div id="footer" style="margin-top: 240px;">
+    <p id="legal">Copyright &copy; AtomoHost. All Rights Reserved.
+      Designed by <a href="http://www.freecsstemplates.org/">Free CSS
+        Templates</a>.</p>
+    <p id="links"><a href="#">Privacy Policy</a> | <a href="#">Terms
+        of Use</a></p>
+  </div>
+  <br />
+  <br />
+</body>
+
+</html>
