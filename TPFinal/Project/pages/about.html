@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts.js"></script>
+    <style> 
+        .about__content {
+            display: flex;
+            flex-direction: column;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: auto;
+        }
+
+        .sidebar__left {
+            display: none;
+        }
+
+        .sidebar__right {
+            display: none;
+        }
+
+        main h1 {
+            font-weight: bold;
+            padding: 0.5em;
+            
+            margin-left: auto;
+            margin-right: auto;
+            max-width: fit-content;
+            max-height: fit-content;
+            height: 2em;
+            
+        }
+
+        main a h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main a:hover h1 {
+            border-top: 2px #31382a solid;
+            border-left: 2px #31382a solid;
+            border-bottom: 2px #737770 solid;
+            border-right: 2px #737770 solid;
+            background-color: #3f4737;
+        }
+
+        .texto__about {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color:black;
+            font-size: 3em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .div__text {
+            -webkit-text-stroke: 1px #737770;
+            margin: 2em;
+            border-top: 2px #737770 solid;
+            border-left: 2px #737770 solid;
+            border-bottom: 2px #31382a solid;
+            border-right:  2px #31382a solid;
+            background-color: #4c5844;
+        }
+
+        .div__text h1 {
+            -webkit-text-stroke: 1px black;
+        }
+
+        .local__logo {
+            width: fit-content;
+            padding: 1em;
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 2em auto 2em auto;
+            
+            border-top: 2px #737770 solid;
+            border-left: 2px #737770 solid;
+            border-bottom: 2px #31382a solid;
+            border-right:  2px #31382a solid;
+            background-color: #4c5844;
+        }
+
+        .local__icontext {
+            margin: 0.5em;
+            width: auto;
+            color: black;
+        }
+
+        .local__icon {
+            height: 150px;
+            width: 150px;
+            margin: 0.5em
+        }
+        
+    </style>
+    <title> Black Mesa &#174;</title>
+</head>
+<body>
+
+    <header class="borde__inactivo">
+        <nav class="navtop">
+            <div class="navtop__logo">
+                <a href="index.html">
+                    <img class="navtop__icon" src="../images/logo.png"/>
+                    <h1 class="navtop__icontext">Black Mesa&#174;</h1>
+                </a>
+            </div>
+            <div class="navtop__links">
+                <a href="index.html" class="navtop__link navtop__link--active borde__inactivo">Inicio</a>
+                <a href="catalogo.html" class="navtop__link borde__inactivo">Catalogo</a>
+                <a href="noticias.html" class="navtop__link borde__inactivo">Noticias</a>
+                <a href="#" class="navtop__link borde__activo">Sobre nosotros</a>
+                <a href="contacto.html" class="navtop__link borde__inactivo">Contacto</a>
+            </div>
+            <div class="navtop__form">
+                <form id="formulario__busqueda">
+                    <input type="search" class="buscar" placeholder="Buscar" id="buscar" autocomplete="off"">
+                    <input type="image" class="boton" alt="Buscar" src="../images/lupaicon.png">
+                </form>
+            </div>
+            <div class="navtop__myprofile">
+                <a href="profile.html" class="navtop__myprofile__text">Mi perfil</a>
+                <div class="navtop__myprofile__img__border">
+                    <div class="navtop__myprofile__img__marco">
+                        <a href="profile.html"><img src="../images/profile/profile_pic.jpg" class="borde__activo"/></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+    <main class="borde__inactivo">
+        <div id="main__principal">
+            <div class="about__content borde__activo">
+                <div class="local__logo">
+                    <a href="index.html"><img class="local__icon" src="../images/logo.png"/></a>
+                    <h1 class="local__icontext">Black Mesa&#174;</h1>
+                </div>
+                <div class="div__text">
+                    <div>
+                        <p class="texto__about">
+                            Black Mesa es el mejor lugar para comprar juegos y merchandising. 
+                        </p>              
+                    </div>
+                    <div>
+                        <h1>¡ACCEDE AL CONTENIDO EN UN INSTANTE!</h1>
+                        <p class="texto__about">Con casi 30 000 juegos publicados<br> desde grandes compañías hasta estudios independientes pasando por todo lo intermedio. Disfruta de ofertas exclusivas, actualizaciones automáticas y otras grandes ventajas.</p>
+                        <a href="catalogo.html"><h1>Explorar la tienda</h1></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <footer class="borde__inactivo"> 
+        <nav class="navbot">
+            <div class="navbot__links">
+                <a href="index.html" class="navbot__link navbot__link--active">Inicio</a> |
+                <a href="catalogo.html" class="navbot__link">Catalogo</a> |
+                <a href="noticias.html" class="navbot__link">Noticias</a> |
+                <a href="#" class="navbot__link">Sobre nosotros</a> |
+                <a href="contacto.html" class="navbot__link">Contacto</a>
+            </div>  
+            <div class="navbot__iconlinks">
+                <a href="https://www.youtube.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-discord"></i></a>
+                <a href="https://web.telegram.org/" target="_blank" class="navbot__iconlink"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.whatsapp.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-whatsapp"></i></a>
+                <script src="https://kit.fontawesome.com/38d4c0028c.js" crossorigin="anonymous"></script> 
+            </div>
+        </nav>
+    </footer>
+    
+</body>
+
+</html>
+

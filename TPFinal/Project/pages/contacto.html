@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts.js"></script>
+    <style> 
+
+        main h1 {
+            font-weight: bold;
+            max-width: fit-content;
+            max-height: fit-content;
+            height: 2em;    
+        }
+
+        .div__text {
+            -webkit-text-stroke: 1px #737770;
+            margin: 2em;
+            border-top: 2px #737770 solid;
+            border-left: 2px #737770 solid;
+            border-bottom: 2px #31382a solid;
+            border-right:  2px #31382a solid;
+            background-color: #4c5844;
+        }
+
+        .div__text h1 {
+            -webkit-text-stroke: 0.5px black;
+        }
+
+        .div__content {
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+
+        .div__content h1 {
+            display: inline;
+            margin: 0 0 0 0;
+            height: fit-content;
+        }
+
+        p {
+            display: inline;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: xx-large;
+        }
+
+        .div__redes{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .div__redes h1 {
+            font-size: xxx-large;
+        }
+
+        .main__iconlinks i, .main__iconlinks i:hover {
+            font-size: 6em;
+            padding: 10px;
+            border: 2px #4c5844 solid;
+            margin: 20px;
+            -webkit-text-stroke: 2px orange;
+        }
+
+        .main__iconlinks i:hover {
+            border-bottom-color: #31382a;
+            border-right-color: #31382a;
+            border-top-color: #737770;
+            border-left-color: #737770;
+        }
+
+    </style>
+    <title> Black Mesa &#174;</title>
+</head>
+<body>
+
+    <header class="borde__inactivo">
+        <nav class="navtop">
+            <div class="navtop__logo">
+                <a href="index.html">
+                    <img class="navtop__icon" src="../images/logo.png"/>
+                    <h1 class="navtop__icontext">Black Mesa&#174;</h1>
+                </a>
+            </div>
+            <div class="navtop__links">
+                <a href="index.html" class="navtop__link navtop__link--active borde__inactivo">Inicio</a>
+                <a href="catalogo.html" class="navtop__link borde__inactivo">Catalogo</a>
+                <a href="noticias.html" class="navtop__link borde__inactivo">Noticias</a>
+                <a href="about.html" class="navtop__link borde__inactivo">Sobre nosotros</a>
+                <a href="#" class="navtop__link borde__activo">Contacto</a>
+            </div>
+            <div class="navtop__form">
+                <form id="formulario__busqueda">
+                    <input type="search" class="buscar" placeholder="Buscar" id="buscar" autocomplete="off">
+                    <input type="image" class="boton" alt="Buscar" src="../images/lupaicon.png">
+                </form>
+            </div>
+            <div class="navtop__myprofile">
+                <a href="profile.html" class="navtop__myprofile__text">Mi perfil</a>
+                <div class="navtop__myprofile__img__border">
+                    <div class="navtop__myprofile__img__marco">
+                        <a href="profile.html"><img src="../images/profile/profile_pic.jpg" class="borde__activo"/></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="borde__inactivo">
+        <div id="main__principal">
+            <div class="contact__content borde__activo">
+                <div class="div__text">
+                    <div class="div__content">
+                        <div>
+                            <h1>Correo electrónico: </h1> <p>contact@blackmesa.com</p><br>
+                        </div>
+                        <div>
+                            <h1>Teléfono: </h1> <p>0800-CAKEISALIE-360-NOSCOPE</p><br>
+                        </div>
+                        <div>
+                            <h1>Dirección: </h1> <p>Calle Falsa 123</p><br>
+                        </div>
+                        <div>
+                            <h1>Horarios de atención: </h1> <p>Lunes a Viernes, de 05:00hs a 23:00hs</p><br>
+                        </div>
+                    </div>
+                    <div class="div__redes">
+                        <div>
+                            <h1>¡Seguinos en nuestras redes!</h1>
+                        </div>
+                        <div class="main__iconlinks">
+                            <a href="https://www.youtube.com/" target="_blank" class="main__iconlink"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/" target="_blank" class="main__iconlink"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank" class="main__iconlink"><i class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com/" target="_blank" class="main__iconlink"><i class="fab fa-twitter"></i></a>
+                            <a href="https://discord.com/" target="_blank" class="main__iconlink"><i class="fab fa-discord"></i></a>
+                            <a href="https://web.telegram.org/" target="_blank" class="main__iconlink"><i class="fab fa-telegram"></i></a>
+                            <a href="https://www.whatsapp.com/" target="_blank" class="main__iconlink"><i class="fab fa-whatsapp"></i></a>
+                            <script src="https://kit.fontawesome.com/38d4c0028c.js" crossorigin="anonymous"></script> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer class="borde__inactivo"> 
+        <nav class="navbot">
+            <div class="navbot__links">
+                <a href="index.html" class="navbot__link navbot__link--active">Inicio</a> |
+                <a href="catalogo.html" class="navbot__link">Catalogo</a> |
+                <a href="noticias.html" class="navbot__link">Noticias</a> |
+                <a href="about.html" class="navbot__link">Sobre nosotros</a> |
+                <a href="#" class="navbot__link">Contacto</a>
+            </div>  
+            <div class="navbot__iconlinks">
+                <a href="https://www.youtube.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-discord"></i></a>
+                <a href="https://web.telegram.org/" target="_blank" class="navbot__iconlink"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.whatsapp.com/" target="_blank" class="navbot__iconlink"><i class="fab fa-whatsapp"></i></a>
+                <script src="https://kit.fontawesome.com/38d4c0028c.js" crossorigin="anonymous"></script> 
+            </div>
+        </nav>
+    </footer>
+    
+</body>
+
+</html>

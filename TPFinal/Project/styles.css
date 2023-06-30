@@ -4,9 +4,22 @@
     color: #d3d5d1;
 }
 
+*::-webkit-scrollbar {
+    width: 0.6em;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #3e4637;
+    border-radius: 8px; /*Borde redondeado del scroll*/
+}
+  
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #808080;
+}
+
 html {
     max-height: 100vh;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 body {
@@ -27,7 +40,7 @@ a:hover {
 
 /*Encabezado, pie y sus contenidos*/
 
-.borde_activo {
+.borde__activo {
     border-top: 2px #31382a solid;
     border-left: 2px #31382a solid;
     border-bottom: 2px #737770 solid;
@@ -35,7 +48,7 @@ a:hover {
     background-color: #3f4737;
 }
 
-.borde_inactivo {
+.borde__inactivo {
     border-top: 2px #737770 solid;
     border-left: 2px #737770 solid;
     border-bottom: 2px #31382a solid;
@@ -109,7 +122,8 @@ a:hover {
     font-family: inherit;
     background-color: inherit;
     height: 2em;
-    outline: none; /*Borde al seleccionar search*/
+    /*Borde al seleccionar search*/
+    outline: none; 
 }
 
 .navtop__form .buscar::placeholder {
@@ -154,8 +168,26 @@ a:hover {
     font-weight:initial;
 }
 
-.navtop__myprofile img {
+.navtop__myprofile__img__border {
+    display: flex;
+    align-items: center;
+    width: 40px;
     height: 40px;
+}
+
+.navtop__myprofile__img__marco {
+    display: flex;
+    align-items: center;
+    width: 40px;
+}
+
+.navtop__myprofile__img__marco a {
+    width: 40px;
+    margin: 0;
+}
+
+.navtop__myprofile img {
+    width: 40px;
 }
 
 .navbot {
@@ -180,8 +212,9 @@ a:hover {
     padding: 4px 2px 2px 2px;
 }
 
-.navbot__iconlinks a {
+.navbot__iconlinks i {
     color: #d3d5d1;
+    -webkit-text-stroke: 0.5px orange;
 }
 
 
@@ -193,28 +226,33 @@ p {
     margin: 1em;
 }
 
+h1 {
+    margin: 1em;
+}
+
+.main__titulo {
+    margin: 1em;
+}
+
+.main__titulo h1 {
+    margin: 0.5em;
+
+}
+
 main {
-    margin: 1em 0 1em 0;   
-}
-
-.sidebar__top {
-    width: 33%;
-}
-
-.sidebar__left {
-    width: 33%;
-}
-
-.main__content {
-    width: 33%;
-}
-
-.sidebar__right {
+    width: 150vh;
     
-    width: 33%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 2em auto 2em auto;
+    padding: 1.5em;
+    
+    overflow-x: scroll;
 }
 
-.sidebar__bottom {
-
-    width: 33%;
+.div__cargado {
+    margin: 0.5em 0 0.5em 0;
+    padding: 5px;
 }
