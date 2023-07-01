@@ -8,17 +8,113 @@
     <style>
         main {
             margin: 2em auto 2em auto;
+            width: 90%;
+            padding: 2em;
+
             display: flex;
             align-items: center;
-            width: 100vh;
         }
 
         #main__principal {
             width: 100%;
+            padding: 2em;
         }
 
-        .main__titulo h1 {
-            margin: 0.5em;
+        #main__principal a, #main__principal p {
+            margin: 0;
+        } 
+
+        #main__principal button {
+            border-top: 2px #737770 solid;
+            border-left: 2px #737770 solid;
+            border-bottom: 2px #31382a solid;
+            border-right:  2px #31382a solid;
+            background-color: #4c5844;
+        }
+
+        #main__principal button:active {
+            border-top: 2px #31382a solid;
+            border-left: 2px #31382a solid;
+            border-bottom: 2px #737770 solid;
+            border-right: 2px #737770 solid;
+            background-color: #3f4737;
+        }
+
+
+        .main__titulo {
+            margin: 0;
+            text-align: center;
+        }
+
+        .main__contenedor {
+            display: flex;
+        }
+
+        .div__cargado {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .div__cargado a {
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: xx-large;
+            font-weight: bold;
+        }
+
+        .div__cargado a:hover {
+            color: orange;
+        }
+        
+        .producto__link {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+        }
+
+        .producto__icon {
+            margin: 15px;
+            width: 100px;
+            height: 100px;
+            border-top: 2px #737770 solid;
+            border-left: 2px #737770 solid;
+            border-bottom: 2px #31382a solid;
+            border-right:  2px #31382a solid;
+            background-color: #4c5844;
+        }
+
+        .div__producto__precio {
+            
+            padding: 10px;
+            height: 10vh;
+        }
+
+        .producto__precio {
+            height: 50%;
+            font-size: medium;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            color: greenyellow;
+            text-align: center;
+        }
+
+        .busqueda__filtros {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1em;
+            margin-left: 2em;
+            height: fit-content;
+        }
+
+        .busqueda__filtros * {
+            width: max-content;
+            margin: 5px
+        }
+
+        .opcion__filtro {
+            display: flex;
+            align-items: center;
         }
 
     </style>
@@ -59,9 +155,75 @@
 
 
     <main class="borde__inactivo">
-        <div class="main__titulo"> <h1> Tienda </h1></div>
-        <div id="main__principal">
-            <!-- Aqui se cargaran los nuevos divs con noticias-->
+        <div class="main__contenedor">
+            <div> 
+                <div class="main__titulo"> 
+                    <h1> Productos </h1>
+                </div>
+                <div id="main__principal">
+                    <!-- Aqui se cargaran los nuevos divs con productos-->
+                </div>
+            </div>
+            <div class="busqueda__filtros borde__inactivo"> 
+                <h3>Filtros</h3>
+                <form id="busqueda__filtros__formulario">
+                    <div>
+                        <h3>Orden</h3> 
+                        <div>
+                            <h4>Alfabetico</h4> 
+                            <div class="opcion__filtro">
+                                <input type="radio" name="orden" id="ascendenteA">
+                                <label for="ascendenteA">↑</label>
+                            
+                                <input type="radio" name="orden" id="descendenteA">
+                                <label for="descendente">↓</label>
+                            </div>
+                            <h4>Precio</h4>
+                            <div class="opcion__filtro">
+                                <input type="radio" name="orden" id="ascendenteP">
+                                <label for="ascendenteP">↑</label>
+                        
+                                <input type="radio" name="orden" id="descendenteP">
+                                <label for="descendenteP">↓</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <h3>Categoria</h3>
+                            <div>
+                                <div class="opcion__filtro">
+                                    <input type="radio" name="categoria" id="ambos">
+                                    <label for="ambos">Ambos</label>
+                                </div>
+                                <div class="opcion__filtro">
+                                    <input type="radio" name="categoria" id="software">
+                                    <label for="software">Software</label>
+                                </div>
+                                <div class="opcion__filtro">
+                                    <input type="radio" name="categoria" id="merchandising">
+                                    <label for="merchandising">Merchandising</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div>
+                            <h3>Moneda</h3>
+                            <div>
+                                <div class="opcion__filtro">
+                                    <input type="radio" name="precio" id="peso">
+                                    <label for="peso">AR$</label>
+                                </div>
+                                <div class="opcion__filtro">
+                                    <input type="radio" name="precio" id="dolar">
+                                    <label for="dolar">U$D</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="recuperarPaginasFiltradas()">
+
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 
@@ -92,46 +254,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             //Eventos al cargar la pagina
-            
-            const arregloGames = [["Portal 2", "pages/products/games/portal2/portal2.html"], 
-                ["Dark Souls: Prepare To Die Edition", "pages/products/games/darksouls/darksouls.html"], 
-                ["Dota 2", "pages/products/games/dota2/dota2.html"], 
-                ["The Elder Scrolls V: Skyrim", "pages/products/games/skyrim/skyrim.html"], 
-                ["The Binding of Isaac: Rebirth", "pages/products/games/tboir/tboir.html"],
-                ["Hotline Miami", "pages/products/games/hotline/hotline.html"],
-                ["Counter Strike: Global Offensive", "pages/products/games/csgo/csgo.html"],
-                ["Garry's Mod", "pages/products/games/gmod/gmod.html"],
-                ["Mortal Kombat 11", "pages/products/games/mk11/mk11.html"],
-                ["Hatsune Miku: Project DIVA Mega Mix+", "pages/products/games/projectdiva/projectdiva.html"]
-            ];
-
-            const arregloMerch = [["", "pages/products/merch/"],
-                ["", "pages/products/merch/"],
-                ["", "pages/products/merch/"],
-                ["", "pages/products/merch/"],
-                ["", "pages/products/merch/"],
-                ["", "pages/products/merch/"],
-                ["", "pages/products/merch/"],
-                ["", "pages/products/merch/"],
-                ["", "pages/products/merch/"],
-                ["", "pages/products/merch/"]
-            ];
-
-            const allPages = arregloGames.concat(arregloMerch);
 
             // Obtener los parámetros de búsqueda de la URL
-            const parametrosURL = new URLSearchParams(window.location.search);
-            const valorBusqueda = parametrosURL.get("busqueda");
-
-            if (valorBusqueda != null && valorBusqueda != "") {
-                resultadoPaginas = eliminaNoRequeridos(allPages, valorBusqueda);
-            } else {
-                resultadoPaginas = allPages;    
-            }
-            ordenarAscendente(resultadoPaginas);
+            var parametrosURL = new URLSearchParams(window.location.search);
+            var valorBusqueda = (parametrosURL.get("busqueda"));
             
-            //Cargo todas las paginas en #main__principal
-            recuperarPaginas(resultadoPaginas, '#main__principal');
+            //Realiza busqueda
+            paginasMostradas = filtrarCadena(arregloSoft, valorBusqueda);
+            
+            //Orden predeterminados
+            ordenarAscendenteA(paginasMostradas);
+            
+            //Cargo paginas en #main__principal
+            recuperarPaginas(paginasMostradas, '#main__principal');
         });
 
     </script>
