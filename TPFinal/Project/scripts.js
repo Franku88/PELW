@@ -1,5 +1,33 @@
+/**
+ * Eventos al cargar cualquier pagina
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  //Importo json a localStorage
+  if (!("profileData" in localStorage)) {
+    fetch("/TPFinal/project/info/profile.json")
+    .then(response => response.json())
+    .then(data => {
+      actualizarLocalStorage("profileData", data);
+      location.reload();
+    });
+  } 
+
+  // Captura el formulario de busqueda por su ID
+  var form = document.getElementById('formulario__busqueda');
+  // Agrega un controlador de eventos para el evento 'submit'
+  form.addEventListener('submit', function(event) {
+    // Evita que el formulario se envíe
+    event.preventDefault();
+    redirigirBusqueda();
+  });
+  recuperarFotoPerfil(document.getElementById("navtop__profile__image"));
+});
+
+//Parseo profileData del localStorage
+var DATOS__PERFIL = JSON.parse(localStorage.getItem("profileData"));
+
 const arregloSoft = [
-      ["Portal 2", "products/games/portal2/portal2.html", "products/games/portal2/game.gif", 9.99, "soft"], 
+      ["Portal 2", "products/games/portal2/portal2.html", "products/games/portal2/game.gif", 9.99, "soft", ["puzzles", "fps", ]], 
       ["Dark Souls: Prepare To Die Edition", "products/games/darksouls/darksouls.html", "products/games/darksouls/game.gif", 19.99, "soft"],
       ["Dota 2", "products/games/dota2/dota2.html", "products/games/dota2/game.png", 0, "soft"], 
       ["The Elder Scrolls V: Skyrim", "products/games/skyrim/skyrim.html", "products/games/skyrim/game.png", 19.99, "soft"], 
@@ -11,46 +39,27 @@ const arregloSoft = [
       ["Hatsune Miku: Project DIVA Mega Mix+", "products/games/projectdiva/projectdiva.html", "products/games/projectdiva/game.png", 39.39, "soft"]
   ];
 
-const arregloMerch = [["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"],
-    ["", "pages/products/merch/", "", "", "merch"]
+const arregloMerch = [
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""],
+    ["", "pages/products/merch/", "", "", "merch", ""]
   ];
 
 const allPages = arregloSoft.concat(arregloMerch);
 
 const arregloNoticias = [
-  ['¡Inauguramos Black Mesa!', 'pages/news/n1/n1.html', ""],
-  ["Nuevos juegos", 'pages/news/n2/n2.html', ""]
+  ['¡Inauguramos Black Mesa!', 'pages/news/n1/n1.html', "pages/news/n1/img.png", "", "", ""],
+  ["Nuevos juegos", 'pages/news/n2/n2.html', "pages/news/n2/img.png", "", "", ""]
 ];
 
 var paginasMostradas = [];
-
-/**
- * Eventos al cargar cualquier las paginas
- */
-document.addEventListener('DOMContentLoaded', function() {
-  // Captura el formulario de busqueda por su ID
-  var form = document.getElementById('formulario__busqueda');
-
-  // Agrega un controlador de eventos para el evento 'submit'
-  form.addEventListener('submit', function(event) {
-    // Evita que el formulario se envíe
-    event.preventDefault();
-    redirigirBusqueda();
-  });
-
-  (document.getElementById("busqueda__filtros__formulario")).addEventListener('submit', function(event) {
-    // Evita que el formulario se envíe
-    event.preventDefault();
-  });
-});
 
 /**
  * Redirige la pagina actual a catalogo.html junto al parametro de busqueda
@@ -62,6 +71,24 @@ function redirigirBusqueda() {
 
   //Redirigir a catalogo.html con los parámetros de búsqueda (string) en la URL
   window.location.href = `catalogo.html?busqueda=${encodeURIComponent(valorBusqueda)}`;
+}
+
+/**
+ * Carga foto de perfil a un contenedor desde url del localStorage 
+ * @param {Element} elementoImg //Contenedor de la imagen a cargar
+ */
+function recuperarFotoPerfil(elementoImg) {
+  elementoImg.src = DATOS__PERFIL.fotoPerfil;
+}
+
+/**
+ * Actualiza los datos de una llave en local storage
+ * por los de un objetoJson
+ * @param {String} llave //Identificador donde se guardaran los datos nuevos
+ * @param {JSON} objetoJson //Donde se obtienen datos nuevos
+ */
+function actualizarLocalStorage(llave, objetoJson) {
+  localStorage.setItem(llave, JSON.stringify(objetoJson));
 }
 
 /**
@@ -102,25 +129,25 @@ function interruptorInput(input) {
   input.disabled = !input.disabled;
 }
 
-
-
 /**
  * FUNCIONES PARA ARRAYS DE SUBARRAYS QUE CONTENGAN DATOS DE PAGINAS 
  * [i][0]: Titulo, [i][1]: Ruta, [i][2]: Icono, [i][3]: Precio U$D
- * [i][4]: Categoria 
+ * [i][4]: Categoria [i][5]: Etiquetas
 **/
 
 /**
  * Recupera paginas en el div #main__principal
  * tomando en cuenta los filtros del form #busqueda__filtros__formulario
  */
-function recuperarPaginasFiltradas() {
+function recuperarProductosFiltrados() {
   //Borro divs del div principal
+  eliminarHijosMain();
 
+  //Filtro paginas con datos de formulario
   paginasMostradas = filtrarPaginas(allPages);
-  
+
   //Cargo paginas en #main__principal
-  recuperarPaginas(allPages, '#main__principal');
+  recuperarProductos(paginasMostradas, '#main__principal');
 }
 
 /**
@@ -129,13 +156,14 @@ function recuperarPaginasFiltradas() {
  * @param {Array} arregloPaginas //Arreglo de url con sus titulos
  * @param {String} cadenaCont //String con id, clase o etiqueta de contenedor a cargar
  */
-function recuperarPaginas(arregloPaginas, cadenaCont) {
+function recuperarProductos(arregloPaginas, cadenaCont) {
   //Obtengo primer contenedor que se identifique o sea clase de cadenaCont
   var divPrincipal = document.querySelector(cadenaCont);
   var cantPaginas = arregloPaginas.length;
   var pesoSeleccionado = (document.getElementById("peso")).checked;
   if (cantPaginas > 0) {
     for (var i = 0; i < cantPaginas; i++) {
+      var paginaActual = arregloPaginas[i];
       //Crea elemento <div> donde se mostrara cada producto y su precio
       var nuevoDiv = document.createElement("div");
       nuevoDiv.classList.add("borde__activo");
@@ -145,21 +173,21 @@ function recuperarPaginas(arregloPaginas, cadenaCont) {
       var enlace = document.createElement("a");
       enlace.classList.add("producto__link");
       //Modificar el texto y href del enlace
-      enlace.textContent = arregloPaginas[i][0];
-      enlace.href = arregloPaginas[i][1];
+      enlace.textContent = paginaActual[0];
+      enlace.href = paginaActual[1];
 
       //Crea elemento <img> 
       var image = document.createElement("img");
       image.classList.add("producto__icon");
       //Modificar imagen de img
-      image.src = arregloPaginas[i][2];
-      //Agrega enlace e imagen 
+      image.src = paginaActual[2];
+      //Agrega imagen a enlace
       enlace.appendChild(image);
 
       //Agrega enlace al nuevo div
       nuevoDiv.appendChild(enlace);
 
-      if (arregloPaginas[i][3] >= 0) {
+      if (paginaActual[3] >= 0) {
         //Crea elemento <div> y <p> que contendran al precio
         var contPrecio = document.createElement("div");
         contPrecio.classList.add("div__producto__precio");
@@ -167,12 +195,12 @@ function recuperarPaginas(arregloPaginas, cadenaCont) {
         precio.classList.add("producto__precio");
         precio.id = "producto__precio";
         //Modifica texto de <p> y lo agrego a su <div>
-        if (arregloPaginas[i][3] > 0) {
+        if (paginaActual[3] > 0) {
           //Verifico la opcion de moneda
           if (pesoSeleccionado) {
-            precio.textContent = "AR$ "+ (dolarAPeso(arregloPaginas[i][3]));  
+            precio.textContent = "AR$ "+ (dolarAPeso(paginaActual[3]));  
           } else {
-            precio.textContent = "U$D "+ (arregloPaginas[i][3]);  
+            precio.textContent = "U$D "+ (paginaActual[3]);  
           }
           
         } else {
@@ -181,11 +209,15 @@ function recuperarPaginas(arregloPaginas, cadenaCont) {
         //Agrego precio a su contenedor
         contPrecio.appendChild(precio);
 
-        //Crea elemento button para agregar al carro
+        //Crea elemento button para agregar producto al carro
         var agregarCarro = document.createElement("button");
         agregarCarro.classList.add("producto__agregar__carro");
         agregarCarro.classList.add("borde__inactivo");
         agregarCarro.textContent = "Agregar al carro";
+        //QUEDASTE ACA. LOGRASTE PONER IMAGENES, FALTA PRECIO Y TITULO
+        //QUE LOS PRECIOS SE VAYAN SUMANDO Y QUE SE PUEDAN ELIMINAR CON UN BOTON
+        //ADEMAS DE AGREGAR EXISTENCIAS
+        agregarCarro.onclick = agregarProductoCarro.bind(null, paginaActual);
         contPrecio.appendChild(agregarCarro);
         
         //Agrega precio y boton al nuevoDiv
@@ -205,6 +237,58 @@ function recuperarPaginas(arregloPaginas, cadenaCont) {
     //Modificar el texto del enlace
     parrafo.textContent = "Sin coincidencias";
     
+    nuevoDiv.appendChild(parrafo);
+    divPrincipal.appendChild(nuevoDiv);
+  }
+}
+
+/**
+ * Recupera paginas al div indicado mostrando titulo e imagen
+ * @param {Array} arregloPaginas //Contiene paginas 
+ * @param {String} cadenaCont //Identificador de div (class o id)
+ */
+function recuperarPaginas(arregloPaginas, cadenaCont) {
+  //Obtengo primer contenedor que se identifique o sea clase de cadenaCont
+  var divPrincipal = document.querySelector(cadenaCont);
+  var cantPaginas = arregloPaginas.length;
+  if (cantPaginas > 0) {
+    for (var i = 0; i < cantPaginas; i++) {
+      var paginaActual = arregloPaginas[i];
+      //Crea elemento <div> donde se mostrara cada producto y su precio
+      var nuevoDiv = document.createElement("div");
+      nuevoDiv.classList.add("borde__activo");
+      nuevoDiv.classList.add("div__cargado");
+
+      //Crea elemento <a>
+      var enlace = document.createElement("a");
+      enlace.classList.add("producto__link");
+      //Modificar el texto y href del enlace
+      enlace.textContent = paginaActual[0];
+      enlace.href = paginaActual[1];
+
+      //Crea elemento <img> 
+      var image = document.createElement("img");
+      image.classList.add("producto__icon");
+      //Modificar imagen de img
+      image.src = paginaActual[2];
+      //Agrega enlace e imagen 
+      enlace.appendChild(image);
+
+      //Agrega enlace al nuevo div
+      nuevoDiv.appendChild(enlace);
+
+      //Agrega div contenedor del producto al principal
+      divPrincipal.appendChild(nuevoDiv);
+    }
+  } else {
+    //Si el arreglo no tiene paginas, agrega un div de aviso
+    var nuevoDiv = document.createElement("div");
+    nuevoDiv.classList.add("borde__activo");
+    nuevoDiv.classList.add("div__cargado");
+    var parrafo = document.createElement("p");
+
+    //Modificar el texto del enlace
+    parrafo.textContent = "Sin coincidencias";
     
     nuevoDiv.appendChild(parrafo);
     divPrincipal.appendChild(nuevoDiv);
@@ -298,32 +382,87 @@ function comparaStrings(cadenaA, cadenaB) {
  * cumplen condiciones, Retorna array filtrado y ordenado
 */
 function filtrarPaginas(paginas) {
-  //Recupera formulario con filtros
+  //Recupera formulario con filtros elegidos
   var formBusqueda = document.getElementById("busqueda__filtros__formulario");
-  //Array con filtros a aplicar, debe existir su funcion en filtrar()
-  var filtros = ["categoria"];
-  var inputs;
-  var filtro;
 
-  //Obtiene todas las paginas a filtrar
-  paginas = allPages.slice();
-
-  //Realiza filtros de formulario
-  for (var i; i < filtros.length; i++) {
-    inputs = formBusqueda.getElementsByTagName(filtros[i]);
-    filtro = (inputs.find(input=> input.checked)).id;
-    paginas = filtrar(paginas, filtro);
-  }
+  //Busca filtros seleccionados y los aplica
+  var filtros;
+  filtros = buscarFiltros(formBusqueda);
+  paginas = aplicarFiltros(paginas, filtros);
 
   //Realiza filtro de busqueda
-  paginas = filtrarBusqueda(paginas);
+  paginas = filtrarBusqueda(paginas, filtros);
 
-  //Ordena segun orden checked
-  inputs = formBusqueda.getElementsByTagName("orden");
-  filtro = (inputs.find(input=> input.checked)).id;
-  ordenar(paginas, filtro);
-
+  //Ordena arreglo de paginas filtrado
+  var orden = null;
+  orden = buscarOrden(formBusqueda);
+  ordenar(paginas, orden);
+ 
   return paginas;
+}
+
+/**
+ * Busca los filtros marcadados en el formulario
+ * Retorna un arreglo de strings con cada seleccion
+ * Agregar nuevos filtros al array filtros[]
+ * @param {Element} form //Formulario donde obtienen los filtros
+ */
+function buscarFiltros(form) {
+  //Array con filtros a aplicar, debe existir su funcion en filtrar()
+  var filtros = ["categoria", "genero"]; //Se agrega un string por cada filtro agregado
+  var seleccion = [];
+  var inputs;
+  var j;
+  var encontrado;
+  //Busca filtros en el formulario
+  for (var i = 0; i < filtros.length; i++) {
+    inputs = form.querySelectorAll( '[name='+filtros[i]+']');
+    j = 0; encontrado = false;
+    //Busca de cada input, los que esten marcados y los agrega a seleccion
+    while (j < inputs.length) {
+      encontrado = inputs[j].checked;
+      if (encontrado) {
+        seleccion.push(inputs[j].id);
+      }
+      j++;
+    }
+  }
+  return seleccion;
+}
+
+/**
+ * Aplica filtros de un array de strings a un arreglo de paginas
+ * Retorna el nuevo arreglo filtrado
+ * @param {Array} arreglo //Conjunto de paginas
+ * @param {Array} filtros //Cadenas referenciando a filtros
+ */
+function aplicarFiltros(arreglo, filtros) {
+  for (var i = 0; i < filtros.length; i++) {
+    arreglo = filtrar(arreglo, filtros[i]);
+  }
+  return arreglo;
+}
+
+/**
+ * Busca orden seleccionado en formulario.
+ * Retorna id del input en estado checked de la coleccion
+ * de elementos con name="orden".
+ * @param {Element} form //Formulario donde obtiene el orden elegido
+ */
+function buscarOrden(form) {
+  var encontrado = false;
+  var i = 0;
+  var orden = null;
+  //Busca inputs con name orden del formulario ingreasado
+  inputs = form.querySelectorAll('[name="orden"]');
+  while (!encontrado && i < inputs.length) {
+    encontrado = inputs[i].checked;
+    if(encontrado) {
+      orden = inputs[i].id;
+    }
+    i++;
+  } 
+  return orden;
 }
 
 /**
@@ -407,7 +546,7 @@ function filtrar(arreglo, filtro){
  */
 function filtrarSoftware(arreglo) {
   arreglo = arreglo.filter(function(elemento) {
-    return elemento[4] == "software";
+    return elemento[4] == "soft";
   });
   return arreglo;
 }
@@ -420,7 +559,7 @@ function filtrarSoftware(arreglo) {
  */
 function filtrarMerchandising(arreglo) {
   arreglo = arreglo.filter(function(elemento) {
-    return elemento[4] == "merchandising";
+    return elemento[4] == "merch";
   });
   return arreglo;
 }
@@ -452,3 +591,42 @@ function eliminarHijos(contenedor) {
     contenedor.removeChild(contenedor.firstChild);
   }
 }
+
+function agregarProductoCarro(producto) {
+  
+  
+    var divMain = document.getElementById("main__carro");
+    var nuevoDiv = document.createElement("div");
+    nuevoDiv.classList.add("producto__carro"); 
+    nuevoDiv.classList.add("borde__inactivo");
+    divMain.appendChild(nuevoDiv);
+
+
+
+    //Crea elemento <img>
+    var image = document.createElement("img");
+    image.classList.add("producto__icon__carro");
+    image.src = producto[2];
+    nuevoDiv.appendChild(image);
+
+    var titulo = document.createElement("p");
+    titulo.id = "producto__titulo__carro";
+    titulo.textContent = producto[0];
+    nuevoDiv.appendChild(titulo);  
+  
+  
+
+
+  /**
+  * [i][0]: Titulo, [i][1]: Ruta, [i][2]: Icono, [i][3]: Precio U$D
+  * [i][4]: Categoria [i][5]: Etiquetas
+  */
+
+    
+
+
+
+}
+
+
+

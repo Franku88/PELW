@@ -8,11 +8,13 @@
     <style>
         main {
             margin: 2em auto 2em auto;
-            width: 90%;
-            padding: 2em;
+            width: 95%;
+            padding: 1em;
 
             display: flex;
             align-items: center;
+            flex-direction: row;
+            justify-content: flex-end;
         }
 
         #main__principal {
@@ -22,9 +24,9 @@
 
         #main__principal a, #main__principal p {
             margin: 0;
-        } 
+        }
 
-        #main__principal button {
+        main button {
             border-top: 2px #737770 solid;
             border-left: 2px #737770 solid;
             border-bottom: 2px #31382a solid;
@@ -32,7 +34,7 @@
             background-color: #4c5844;
         }
 
-        #main__principal button:active {
+        main button:active {
             border-top: 2px #31382a solid;
             border-left: 2px #31382a solid;
             border-bottom: 2px #737770 solid;
@@ -40,20 +42,120 @@
             background-color: #3f4737;
         }
 
+        .main__carro {
+            width: 21.5%;
+            height: 76%;
+        }
 
-        .main__titulo {
+        #main__contenedor__carro {
+            position: fixed;
+            top: 13.5vh; 
+            left: 3.5vw;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #main__carro {
+            height: 80%;
+            width: 90%;
+            overflow: auto;
+        }
+
+        #main__carro::-webkit-scrollbar {
+            background-color: #31382a;
+                        
+        }
+
+        #main__carro__resumen {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 10%;
+            width: 90%;
+            font-family:'Courier New', Courier, monospace;
+        }
+
+        #main__carro__total {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 65%;
+            overflow-x: auto;
+        }
+
+        #main__carro__total p {
+            margin: 0.5em;
+            height: 1em;
+            width: auto;
+            font-size: large;
+            font-weight: bold;
+            color: greenyellow;
+        }
+
+        #main__carro__moneda {
+            height: 100%;
+            width: 35%;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            overflow-x: auto;
+        }
+
+        #carro__moneda__formulario {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        .inputs__horizontal {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .inputs__horizontal > div {
+            display: flex;
+            margin: 5px;
+        }
+
+        .inputs__horizontal input{
+            width: fit-content;
             margin: 0;
-            text-align: center;
+        }
+
+        .producto__carro {
+            display: flex;
+            align-items: center;
+            height: fit-content;
+        }
+
+        .producto__carro img {
+            height: 70px;
+            width: 70px;
         }
 
         .main__contenedor {
             display: flex;
+            justify-content: space-between;
+            width: 76.5%;
+        }
+
+        .main__productos {
+            width: 100%;
+        }
+
+        .main__titulo {
+            margin: 0;
+            text-align: center;
+            width: 100%;
         }
 
         .div__cargado {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            width: 100%;
         }
 
         .div__cargado a {
@@ -66,12 +168,6 @@
             color: orange;
         }
         
-        .producto__link {
-            display: flex;
-            align-items: center;
-            flex-direction: row-reverse;
-        }
-
         .producto__icon {
             margin: 15px;
             width: 100px;
@@ -84,7 +180,6 @@
         }
 
         .div__producto__precio {
-            
             padding: 10px;
             height: 10vh;
         }
@@ -102,19 +197,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+
             padding: 1em;
-            margin-left: 2em;
+            margin: 2em;
             height: fit-content;
+            max-height: 100vw;
         }
 
         .busqueda__filtros * {
             width: max-content;
-            margin: 5px
+            margin: 5px;
+        }
+
+        #busqueda__filtros__formulario {
+            width: 100%;
         }
 
         .opcion__filtro {
             display: flex;
             align-items: center;
+        }
+
+        .div__boton {
+            display: flex;
+            align-items: center;
+            margin: 0 auto 0 auto;
         }
 
     </style>
@@ -132,7 +239,7 @@
             <div class="navtop__links">
                 <a href="index.html" class="navtop__link navtop__link--active borde__inactivo">Inicio</a>
                 <a href="#" class="navtop__link borde__activo">Catalogo</a>
-                <a href="noticias.html" class="navtop__link borde__inactivo">Noticias</a>
+                <a href="novedades.html" class="navtop__link borde__inactivo">Novedades</a>
                 <a href="about.html" class="navtop__link borde__inactivo">Sobre nosotros</a>
                 <a href="contacto.html" class="navtop__link borde__inactivo">Contacto</a>
             </div>
@@ -142,11 +249,14 @@
                     <input type="image" class="boton" alt="Buscar" src="../images/lupaicon.png">
                 </form>
             </div>
+            <div class="navtop__cart">
+                <a href="carro.html"><img src="../images/carticon.png"></a>
+            </div>
             <div class="navtop__myprofile">
                 <a href="profile.html" class="navtop__myprofile__text">Mi perfil</a>
                 <div class="navtop__myprofile__img__border">
                     <div class="navtop__myprofile__img__marco">
-                        <a href="profile.html"><img src="../images/profile/profile_pic.jpg" class="borde__activo"/></a>
+                        <a href="profile.html"><img  class="borde__activo" id="navtop__profile__image"/></a>
                     </div>
                 </div>
             </div>
@@ -155,8 +265,35 @@
 
 
     <main class="borde__inactivo">
-        <div class="main__contenedor">
-            <div> 
+        <div id="main__contenedor__carro" class="main__carro borde__inactivo">
+            <div class="main__titulo"> 
+                <h2> Carro </h2>
+            </div>
+            <div id="main__carro" class="borde__activo">
+                <!--- Aqui se añadiran los productos a comprar-->
+            </div>
+            <div id="main__carro__resumen">
+                <div id="main__carro__total" class="borde__activo">
+                    <p>Total: </p>
+                </div>
+                <div id="main__carro__moneda" class="borde__inactivo">
+                    <form id="carro__moneda__formulario">
+                        <div class="inputs__horizontal">
+                            <div>
+                                <input type="radio" name="precioTotal" id="pesosTotal" checked>
+                                <label for="pesosTotal">AR$</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="precioTotal" id="dolaresTotal">
+                                <label for="dolaresTotal">U$D</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="main__contenedor borde__inactivo">
+            <div class="main__productos"> 
                 <div class="main__titulo"> 
                     <h1> Productos </h1>
                 </div>
@@ -172,7 +309,7 @@
                         <div>
                             <h4>Alfabetico</h4> 
                             <div class="opcion__filtro">
-                                <input type="radio" name="orden" id="ascendenteA">
+                                <input type="radio" name="orden" id="ascendenteA" checked>
                                 <label for="ascendenteA">↑</label>
                             
                                 <input type="radio" name="orden" id="descendenteA">
@@ -192,8 +329,8 @@
                             <h3>Categoria</h3>
                             <div>
                                 <div class="opcion__filtro">
-                                    <input type="radio" name="categoria" id="ambos">
-                                    <label for="ambos">Ambos</label>
+                                    <input type="radio" name="categoria" id="todo" checked>
+                                    <label for="todo">Todo</label>
                                 </div>
                                 <div class="opcion__filtro">
                                     <input type="radio" name="categoria" id="software">
@@ -210,7 +347,7 @@
                             <h3>Moneda</h3>
                             <div>
                                 <div class="opcion__filtro">
-                                    <input type="radio" name="precio" id="peso">
+                                    <input type="radio" name="precio" id="peso" checked>
                                     <label for="peso">AR$</label>
                                 </div>
                                 <div class="opcion__filtro">
@@ -219,8 +356,9 @@
                                 </div>
                             </div>
                         </div>
-                        <button onclick="recuperarPaginasFiltradas()">
-
+                        <div class="div__boton">
+                            <button class="busqueda__filtros__boton" onclick="recuperarProductosFiltrados()">Aplicar</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -234,7 +372,7 @@
             <div class="navbot__links">
                 <a href="index.html" class="navbot__link navbot__link--active">Inicio</a> |
                 <a href="#" class="navbot__link">Catalogo</a> |
-                <a href="noticias.html" class="navbot__link">Noticias</a> |
+                <a href="novedades.html" class="navbot__link">Novedades</a> |
                 <a href="about.html" class="navbot__link">Sobre nosotros</a> |
                 <a href="contacto.html" class="navbot__link">Contacto</a>
             </div>  
@@ -254,20 +392,16 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             //Eventos al cargar la pagina
-
-            // Obtener los parámetros de búsqueda de la URL
-            var parametrosURL = new URLSearchParams(window.location.search);
-            var valorBusqueda = (parametrosURL.get("busqueda"));
-            
-            //Realiza busqueda
-            paginasMostradas = filtrarCadena(arregloSoft, valorBusqueda);
-            
-            //Orden predeterminados
-            ordenarAscendenteA(paginasMostradas);
-            
-            //Cargo paginas en #main__principal
-            recuperarPaginas(paginasMostradas, '#main__principal');
+            const formFiltros = document.getElementById("busqueda__filtros__formulario");
+            formFiltros.addEventListener('submit', function(event) {
+                // Evita que el formulario se envíe
+                event.preventDefault();
+            });
+            //Recupera paginas con valores default
+            recuperarProductosFiltrados();
         });
+
+        
 
     </script>
     

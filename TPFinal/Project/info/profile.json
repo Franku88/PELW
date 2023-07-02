@@ -1,7 +1,8 @@
 {
-    "username": "G-man",
-    "nombre": "Gaben",
-    "pais": "Argentina",
-    "juegos": "200",
-    "horas": "10000"
+    "username": "default",
+    "nombre": "default",
+    "pais": "default",
+    "birthdate": "",
+    "descripcion": "Una descripcion",
+    "fotoPerfil": "/TPFinal/Project/images/profile/default.png"
 }

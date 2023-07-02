@@ -1,11 +1,17 @@
 * {
     box-sizing: border-box;
-    overflow: hidden;
+
     color: #d3d5d1;
 }
 
+ul * {
+    list-style: none;
+}
+
+
 *::-webkit-scrollbar {
     width: 0.6em;
+    height: 0.6em;
 }
   
 *::-webkit-scrollbar-thumb {
@@ -15,6 +21,10 @@
   
 *::-webkit-scrollbar-thumb:hover {
     background-color: #808080;
+}
+
+*::-webkit-scrollbar-corner {
+    background-color: #31382a;
 }
 
 html {
@@ -60,6 +70,7 @@ a:hover {
     padding: 0.5em;
     display: flex;
     align-items: center;
+    height: 8vh;
 }
 
 .navtop__links a {
@@ -140,6 +151,15 @@ a:hover {
     padding: 0 0.5em 0 0.5em;
 }
 
+.navtop__cart {
+    margin: 1em;
+}
+
+.navtop__cart img {
+    height: 30px;
+    width: auto;
+}
+
 .navtop__myprofile {
     display: flex;
     align-items: center;
@@ -173,6 +193,7 @@ a:hover {
     align-items: center;
     width: 40px;
     height: 40px;
+    overflow: hidden;
 }
 
 .navtop__myprofile__img__marco {
@@ -230,6 +251,11 @@ h1 {
     margin: 1em;
 }
 
+h1, h2, h3 {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0.5em;
+}
+
 .main__titulo {
     margin: 1em;
 }
@@ -240,13 +266,13 @@ h1 {
 }
 
 main {
-    width: 150vh;
-    
+    width: 90vw;
+
     display: flex;
     align-items: center;
     flex-direction: column;
 
-    margin: 2em auto 2em auto;
+    margin: 2vh auto 2vh auto;
     padding: 1.5em;
     
     overflow-x: scroll;
@@ -255,5 +281,14 @@ main {
 .div__cargado {
     margin: 0.5em 0 0.5em 0;
     padding: 5px;
-    width: 115vh;
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.producto__link {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
 }
