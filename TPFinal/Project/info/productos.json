@@ -1,0 +1,159 @@
+{
+    "software": [
+        {
+            "titulo": "Portal 2",
+            "ruta": "/TPFinal/Project/pages/products/games/portal2/portal2.html",
+            "icono": "/TPFinal/Project/pages/products/games/portal2/game.gif",
+            "precio": 9.99,
+            "etiquetas": [
+                "puzzles",
+                "fps"
+            ]
+        },
+        {
+            "titulo": "Dark Souls: Prepare To Die Edition",
+            "ruta": "/TPFinal/Project/pages/products/games/darksouls/darksouls.html",
+            "icono": "/TPFinal/Project/pages/products/games/darksouls/game.gif",
+            "precio": 19.99,
+            "etiquetas": [
+                "rpg",
+                "medieval"
+            ]
+        },
+        {
+            "titulo": "Dota 2",
+            "ruta": "/TPFinal/Project/pages/products/games/dota2/dota2.html",
+            "icono": "/TPFinal/Project/pages/products/games/dota2/game.png",
+            "precio": 0.00,
+            "etiquetas": [
+                "moba",
+                "estrategia"
+            ]
+        },
+        {
+            "titulo": "The Elder Scrolls V: Skyrim",
+            "ruta": "/TPFinal/Project/pages/products/games/skyrim/skyrim.html",
+            "icono": "/TPFinal/Project/pages/products/games/skyrim/game.png",
+            "precio": 19.99,
+            "etiquetas": [
+                "rpg",
+                "medieval"
+            ]
+        },
+        {
+            "titulo": "Mortal Kombat 11",
+            "ruta": "/TPFinal/Project/pages/products/games/mk11/mk11.html",
+            "icono": "/TPFinal/Project/pages/products/games/mk11/game.png",
+            "precio": 49.99,
+            "etiquetas": [
+                "lucha"
+            ]
+        },
+        {
+            "titulo": "The Binding of Isaac: Rebirth",
+            "ruta": "/TPFinal/Project/pages/products/games/tboir/tboir.html",
+            "icono": "/TPFinal/Project/pages/products/games/tboir/game.gif",
+            "precio": 14.99,
+            "etiquetas": [
+                "roguelike",
+                "indie",
+                "retro"
+            ]
+        },
+        {
+            "titulo": "Garry's Mod",
+            "ruta": "/TPFinal/Project/pages/products/games/gmod/gmod.html",
+            "icono": "/TPFinal/Project/pages/products/games/gmod/game.png",
+            "precio": 9.99,
+            "etiquetas": [
+                "sandbox"
+            ]
+        },
+        {
+            "titulo": "Counter Strike: Global Offensive",
+            "ruta": "/TPFinal/Project/pages/products/games/csgo/csgo.html",
+            "icono": "/TPFinal/Project/pages/products/games/csgo/game.png",
+            "precio": 0.00,
+            "etiquetas": [
+                "fps"
+            ]
+        },
+        {
+            "titulo": "Hotline Miami",
+            "ruta": "/TPFinal/Project/pages/products/games/hotline/hotline.html",
+            "icono": "/TPFinal/Project/pages/products/games/hotline/game.gif",
+            "precio": 9.99,
+            "etiquetas": [
+                "indie", "retro"
+            ]
+        },
+        {
+            "titulo": "Hatsune Miku: Project DIVA Mega Mix+",
+            "ruta": "/TPFinal/Project/pages/products/games/projectdiva/projectdiva.html",
+            "icono": "/TPFinal/Project/pages/products/games/projectdiva/game.png",
+            "precio": 39.39,
+            "etiquetas": [
+                "ritmo"
+            ]
+        }
+    ],
+    
+    "merchandising": [
+        {
+            "titulo": "",
+            "ruta": "/TPFinal/Project/pages/pages/products/merch/",
+            "icono": "",
+            "precio": "",
+            "etiquetas": [
+            ]
+        },
+        {
+            "titulo": "",
+            "ruta": "/TPFinal/Project/pages/pages/products/merch/",
+            "icono": "",
+            "precio": "",
+            "etiquetas": [
+            ]
+        },
+        {
+            "titulo": "",
+            "ruta": "/TPFinal/Project/pages/pages/products/merch/",
+            "icono": "",
+            "precio": "",
+            "etiquetas": [
+            ]
+        },
+        {
+            "titulo": "",
+            "ruta": "/TPFinal/Project/pages/pages/products/merch/",
+            "icono": "",
+            "precio": "",
+            "etiquetas": [
+            ]
+        },
+        {
+            "titulo": "",
+            "ruta": "/TPFinal/Project/pages/pages/products/merch/",
+            "icono": "",
+            "precio": "",
+            "etiquetas": [
+            ]
+        },
+        {
+            "titulo": "",
+            "ruta": "/TPFinal/Project/pages/pages/products/merch/",
+            "icono": "",
+            "precio": "",
+            "etiquetas": [
+            ]
+        },
+        {
+            "titulo": "",
+            "ruta": "/TPFinal/Project/pages/pages/products/merch/",
+            "icono": "",
+            "precio": "",
+            "etiquetas": [
+            ]
+        }
+    ]
+}

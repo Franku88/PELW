@@ -73,7 +73,6 @@
             flex-direction: column;
             width: max-content;
             height: min-content;
-            
         }
 
         .profile__img__marco img {
@@ -135,7 +134,6 @@
             display: flex;
             flex-direction: column;
         }
-        
         
     </style>
     <title> Black Mesa &#174;</title>
@@ -261,25 +259,25 @@
          * Realiza carga de datos del perfil desde json
          */
          function recuperarDatosPerfil() {
-            if (DATOS__PERFIL) {
-                document.getElementById("username").value = DATOS__PERFIL.username;
-                document.getElementById("nombre").value = DATOS__PERFIL.nombre;
-                document.getElementById("pais").value = DATOS__PERFIL.pais;
-                document.getElementById("birthdate").value = DATOS__PERFIL.birthdate;
-                document.getElementById("descripcion").value = DATOS__PERFIL.descripcion;
+            if (PROFILE__DATA) {
+                document.getElementById("username").value = PROFILE__DATA.username;
+                document.getElementById("nombre").value = PROFILE__DATA.nombre;
+                document.getElementById("pais").value = PROFILE__DATA.pais;
+                document.getElementById("birthdate").value = PROFILE__DATA.birthdate;
+                document.getElementById("descripcion").value = PROFILE__DATA.descripcion;
                 recuperarFotoPerfil(document.getElementById("profile__image"));    
             }
         }
 
         function guardarDatosPerfil() {
             //Cargo nuevos datos desde los inputs al json
-            DATOS__PERFIL.username = document.getElementById("username").value;
-            DATOS__PERFIL.nombre = document.getElementById("nombre").value;
-            DATOS__PERFIL.pais = document.getElementById("pais").value;
-            DATOS__PERFIL.birthdate = document.getElementById("birthdate").value;
-            DATOS__PERFIL.descripcion = document.getElementById("descripcion").value;
+            PROFILE__DATA.username = document.getElementById("username").value;
+            PROFILE__DATA.nombre = document.getElementById("nombre").value;
+            PROFILE__DATA.pais = document.getElementById("pais").value;
+            PROFILE__DATA.birthdate = document.getElementById("birthdate").value;
+            PROFILE__DATA.descripcion = document.getElementById("descripcion").value;
             //Guardo nuevos datos al string en localStorage
-            actualizarLocalStorage("profileData", DATOS__PERFIL);
+            actualizarLocalStorage("PROFILE__DATA", PROFILE__DATA);
         }
 
         /**
@@ -325,8 +323,8 @@
 
         function guardarNuevaImagenPerfil(idInput) {
             var ruta = obtenerRutaFile(idInput);
-            DATOS__PERFIL.fotoPerfil = ruta;
-            localStorage.setItem("profileData", JSON.stringify(DATOS__PERFIL));
+            PROFILE__DATA.fotoPerfil = ruta;
+            localStorage.setItem("PROFILE__DATA", JSON.stringify(PROFILE__DATA));
             location.reload();
         }
 
@@ -345,7 +343,7 @@
             if (imagenElegida) {
                 ruta = ruta + imagenElegida.name;
             } else {
-                ruta = DATOS__PERFIL.fotoPerfil;
+                ruta = PROFILE__DATA.fotoPerfil;
             }
             //console.log(ruta);
             return ruta;

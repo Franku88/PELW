@@ -292,3 +292,7 @@ main {
     align-items: center;
     flex-direction: row-reverse;
 }
+
+.producto__link p {
+    font-size: medium;
+}

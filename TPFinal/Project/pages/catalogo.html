@@ -9,6 +9,7 @@
         main {
             margin: 2em auto 2em auto;
             width: 95%;
+            min-height: 80vh;
             padding: 1em;
 
             display: flex;
@@ -20,6 +21,8 @@
         #main__principal {
             width: 100%;
             padding: 2em;
+            display: flex;
+            flex-direction: column;
         }
 
         #main__principal a, #main__principal p {
@@ -43,7 +46,7 @@
         }
 
         .main__carro {
-            width: 21.5%;
+            width: 32.5%;
             height: 76%;
         }
 
@@ -70,37 +73,31 @@
         #main__carro__resumen {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             height: 10%;
             width: 90%;
             font-family:'Courier New', Courier, monospace;
         }
 
-        #main__carro__total {
+        .main__carro__total {
             display: flex;
             align-items: center;
-            height: 100%;
-            width: 65%;
-            overflow-x: auto;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5px;
+            width: 100%;
         }
 
-        #main__carro__total p {
-            margin: 0.5em;
+        .main__carro__total p {
             height: 1em;
             width: auto;
-            font-size: large;
+            font-size: medium;
             font-weight: bold;
             color: greenyellow;
+            margin: 0;
         }
 
         #main__carro__moneda {
-            height: 100%;
-            width: 35%;
-            
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
+            width: 30%;
             overflow-x: auto;
         }
 
@@ -108,18 +105,11 @@
             display: flex;
             align-items: center;
             flex-direction: column;
-            margin: auto;
-        }
-
-        .inputs__horizontal {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
 
         .inputs__horizontal > div {
             display: flex;
-            margin: 5px;
+            margin: 4px;
         }
 
         .inputs__horizontal input{
@@ -131,17 +121,60 @@
             display: flex;
             align-items: center;
             height: fit-content;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .producto__carro p {
+            margin: 5px;
+            width: fit-content;
         }
 
         .producto__carro img {
-            height: 70px;
-            width: 70px;
+            height: 50px;
+            width: 50px;
+        }
+        
+        .botones__carro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .botones__carro input {
+            width: 20px;
+            background-color: #31382a;
+            text-align: center;
+        }
+
+        .boton__carro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            padding:0;
+            height: 20px;
+            width: 20px;
+            
+        }
+
+        .boton__carro p {
+            margin: 0;
+        }
+
+        .producto__titulo__carro {
+            display: flex;
+            align-items: center;
+        }
+
+        #producto__titulo__carro {
+            margin: 10px;
         }
 
         .main__contenedor {
             display: flex;
             justify-content: space-between;
-            width: 76.5%;
+            width: 65%;
         }
 
         .main__productos {
@@ -180,8 +213,9 @@
         }
 
         .div__producto__precio {
-            padding: 10px;
+            padding: 5px;
             height: 10vh;
+            width: max-content;
         }
 
         .producto__precio {
@@ -191,6 +225,10 @@
             font-weight: bold;
             color: greenyellow;
             text-align: center;
+        }
+
+        .producto__agregar__carro {
+            width: max-content;
         }
 
         .busqueda__filtros {
@@ -270,21 +308,22 @@
                 <h2> Carro </h2>
             </div>
             <div id="main__carro" class="borde__activo">
-                <!--- Aqui se añadiran los productos a comprar-->
+                <!--- Aqui se veran los productos a comprar --->
             </div>
             <div id="main__carro__resumen">
-                <div id="main__carro__total" class="borde__activo">
-                    <p>Total: </p>
+                <div class="borde__activo main__carro__total">
+                    <p>Total:</p>
+                    <p id="main__carro__total">AR$ 0</p>
                 </div>
                 <div id="main__carro__moneda" class="borde__inactivo">
                     <form id="carro__moneda__formulario">
                         <div class="inputs__horizontal">
                             <div>
-                                <input type="radio" name="precioTotal" id="pesosTotal" checked>
+                                <input type="radio" name="precioTotal" id="pesosTotal" onchange="recuperarCarro('main__carro', 'main__carro__total');" checked>
                                 <label for="pesosTotal">AR$</label>
                             </div>
                             <div>
-                                <input type="radio" name="precioTotal" id="dolaresTotal">
+                                <input type="radio" name="precioTotal" id="dolaresTotal" onchange="recuperarCarro('main__carro', 'main__carro__total');">
                                 <label for="dolaresTotal">U$D</label>
                             </div>
                         </div>
@@ -357,7 +396,7 @@
                             </div>
                         </div>
                         <div class="div__boton">
-                            <button class="busqueda__filtros__boton" onclick="recuperarProductosFiltrados()">Aplicar</button>
+                            <button id="busqueda__filtros__boton" onclick="recuperarProductosFiltrados();">Aplicar</button>
                         </div>
                     </div>
                 </form>
@@ -397,11 +436,11 @@
                 // Evita que el formulario se envíe
                 event.preventDefault();
             });
+
             //Recupera paginas con valores default
             recuperarProductosFiltrados();
+            recuperarCarro("main__carro", "main__carro__total");
         });
-
-        
 
     </script>
     

@@ -1,0 +1,15 @@
+[
+    {
+        "titulo": "¡Inauguramos Black Mesa!",
+        "ruta": "/TPFinal/Project/pages/news/n1/n1.html",
+        "icono": "/TPFinal/Project/pages/news/n1/img.png",
+        "etiquetas": [""]
+    },
+    {
+        "titulo": "Nuevos juegos",
+        "ruta": "/TPFinal/Project/pages/news/n2/n2.html",
+        "icono": "/TPFinal/Project/pages/news/n2/img.png",
+        "etiquetas": [""]
+    
+    }
+]
