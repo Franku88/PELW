@@ -176,7 +176,62 @@
                 "/TPFinal/Project/pages/products/games/projectdiva/img2.jpg",
                 "/TPFinal/Project/pages/products/games/projectdiva/img3.jpg"
             ]
+        },
+        {
+            "titulo": "Cruelty Squad",
+            "ruta": "/TPFinal/Project/pages/products/games/crueltysquad/crueltysquad.html",
+            "icono": "/TPFinal/Project/pages/products/games/crueltysquad/game.png",
+            "portada": "/TPFinal/Project/pages/products/games/crueltysquad/header.png",
+            "precio": 19.99,
+            "etiquetas": [
+                "fps", "retro"
+            ],
+            "descripcion": "Un simulador de fantasía de poder inmersivo con elementos de sigilo táctico ambientado en un mundo de basura lleno de aguas residuales.",
+            "imagenes": [
+                "/TPFinal/Project/pages/products/games/crueltysquad/img0.jpg",
+                "/TPFinal/Project/pages/products/games/crueltysquad/img1.jpg",
+                "/TPFinal/Project/pages/products/games/crueltysquad/img2.jpg",
+                "/TPFinal/Project/pages/products/games/crueltysquad/img3.jpg",
+                "/TPFinal/Project/pages/products/games/crueltysquad/img4.jpg"
+            ]
+        },
+        {
+            "titulo": "JoJo's Bizarre Adventure: All-Star Battle R",
+            "ruta": "/TPFinal/Project/pages/products/games/jojo/jojo.html",
+            "icono": "/TPFinal/Project/pages/products/games/jojo/game.png",
+            "portada": "/TPFinal/Project/pages/products/games/jojo/header.png",
+            "precio": 49.99,
+            "etiquetas": [
+                "lucha"
+            ],
+            "descripcion": "La obra maestra de Hirohiko Araki cobra vida en este juego de lucha! ¡Combate contra 50 pintorescos luchadores usando Stands, Hamon y mucho más! ¡Descubre cómo interactúan personajes que no coinciden en la historia cuando se encuentran cara a cara!",
+            "imagenes": [
+                "/TPFinal/Project/pages/products/games/jojo/img0.jpg",
+                "/TPFinal/Project/pages/products/games/jojo/img1.jpg",
+                "/TPFinal/Project/pages/products/games/jojo/img2.jpg",
+                "/TPFinal/Project/pages/products/games/jojo/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Death Stranding Director's Cut",
+            "ruta": "/TPFinal/Project/pages/products/games/deathstranding/deathstranding.html",
+            "icono": "/TPFinal/Project/pages/products/games/deathstranding/game.png",
+            "portada": "/TPFinal/Project/pages/products/games/deathstranding/header.png",
+            "precio": 39.99,
+            "etiquetas": [
+                "sandbox", "simulador"
+            ],
+            "descripcion": " El legendario creador de videojuegos Hideo Kojima nos ofrece una experiencia que desafía a todos los géneros y que, ahora, se amplía con este DIRECTOR’S CUT definitivo. En el futuro, un misterioso evento conocido como Death Stranding ha abierto una puerta entre los vivos y los muertos, lo que lleva a grotescas criaturas del otro mundo deambulen por un planeta en ruinas habitado por una sociedad desolada. En el papel de Sam Bridges, tendrás la misión de llevar esperanza a la humanidad conectando a los últimos supervivientes de unos Estados Unidos arrasados. ¿Podrás volver a unir, paso a paso, un mundo hecho añicos?",
+            "imagenes": [
+                "/TPFinal/Project/pages/products/games/deathstranding/img0.jpg",
+                "/TPFinal/Project/pages/products/games/deathstranding/img1.jpg",
+                "/TPFinal/Project/pages/products/games/deathstranding/img2.jpg",
+                "/TPFinal/Project/pages/products/games/deathstranding/img3.jpg",
+                "/TPFinal/Project/pages/products/games/deathstranding/img4.jpg"
+            ]
         }
+
+       
     ],
     
     "merchandising": [
