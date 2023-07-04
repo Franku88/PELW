@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
       location.reload();
     });
   }
-
+  
+  //Importo noticias.json a localStorage
   if (!("NEWS__DATA" in localStorage)) {
     fetch("/TPFinal/Project/info/noticias.json")
     .then(response => response.json())
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  //Importo carro.json a localStorage
   if (!("CART__DATA" in localStorage)) {
     fetch("/TPFinal/Project/info/carro.json")
     .then(response => response.json())
@@ -48,10 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
     redirigirBusqueda();
   });
 
-  recuperarFotoPerfil(document.getElementById("navtop__profile__image"));
+  recuperarFotoPerfil("navtop__profile__image");
+  recuperarCarroUnidades("main__carro__unidades");
 });
 
-//Parseo PROFILE__DATA y PRODUCTS__DATA del localStorage
+/*Parseo PROFILE__DATA, NEWS__DATA, PRODUCTS__DATA, y CART__DATA del localStorage
+para ser accedidos por el codigo*/
 const PROFILE__DATA = JSON.parse(localStorage.getItem("PROFILE__DATA"));
 const NEWS__DATA = JSON.parse(localStorage.getItem("NEWS__DATA"));
 const PRODUCTS__DATA = JSON.parse(localStorage.getItem("PRODUCTS__DATA"));
@@ -77,14 +81,25 @@ function redirigirBusqueda() {
   const valorBusqueda = buscador.value.toLowerCase();
 
   //Redirigir a catalogo.html con los parámetros de búsqueda (string) en la URL
-  window.location.href = `catalogo.html?busqueda=${encodeURIComponent(valorBusqueda)}`;
+  redirigir(`/TPFinal/Project/pages/catalogo.html?busqueda=${encodeURIComponent(valorBusqueda)}`);
 }
 
 /**
- * Carga foto de perfil a un contenedor desde url del localStorage 
- * @param {Element} elementoImg //Contenedor de la imagen a cargar
+ * Redirige la ventana actual a la direccion url
+ * ingresada por parametro
+ * @param {String} url 
  */
-function recuperarFotoPerfil(elementoImg) {
+function redirigir(url) {
+  window.location.href = url;
+}
+
+/**
+ * Carga foto de perfil a un elemento <img> con idImg  
+ * desde url obtenida del localStorage 
+ * @param {String} elementoImg //Contenedor de la imagen a cargar
+ */
+function recuperarFotoPerfil(idImg) {
+  var elementoImg = document.getElementById(idImg);
   elementoImg.src = PROFILE__DATA.fotoPerfil;
 }
 
@@ -129,7 +144,7 @@ function interruptorInput(input) {
 /**
  * FUNCIONES PARA ARRAYS DE SUBARRAYS QUE CONTENGAN DATOS DE PRODUCTOS 
  * merch/soft[i].titulo, merch/soft[i].ruta, merch/soft[i].icono, 
- * merch/soft[i].precio U$D, merch/soft[i].etiquetas
+ * merch/soft[i].precio (U$D), merch/soft[i].etiquetas
  * PRODUCTS__DATA: array con 2 subarrays
  * PRODUCTS__DATA.software: array de software
  * PRODUCTS__DATA.merchandising: array de merchandising
@@ -137,7 +152,8 @@ function interruptorInput(input) {
 
 /**
  * Recupera productos en el div #main__principal
- * tomando en cuenta los filtros del form #busqueda__filtros__formulario
+ * tomando en cuenta los filtros del form con id
+ * #busqueda__filtros__formulario
  */
 function recuperarProductosFiltrados() {
   //Borro divs del div principal
@@ -423,6 +439,7 @@ function recuperarProductos(productos, cadenaCont) {
         //Crea elemento <div> y <p> que contendran al precio
         var contPrecio = document.createElement("div");
         contPrecio.classList.add("div__producto__precio");
+
         var precio = document.createElement("p");
         precio.classList.add("producto__precio");
         precio.id = "producto__precio";
@@ -434,7 +451,6 @@ function recuperarProductos(productos, cadenaCont) {
           } else {
             precio.textContent = "U$D "+ (producto.precio);  
           }
-          
         } else {
           precio.textContent = "GRATIS";
         }
@@ -446,10 +462,7 @@ function recuperarProductos(productos, cadenaCont) {
         agregarCarro.classList.add("producto__agregar__carro");
         agregarCarro.classList.add("borde__inactivo");
         agregarCarro.textContent = "Agregar al carro";
-        //QUEDASTE ACA. LOGRASTE PONER IMAGENES, FALTA PRECIO Y TITULO
-        //QUE LOS PRECIOS SE VAYAN SUMANDO Y QUE SE PUEDAN ELIMINAR CON UN BOTON
-        //ADEMAS DE AGREGAR EXISTENCIAS
-        agregarCarro.onclick = agregarAlCarro.bind(null, producto);
+        agregarCarro.onclick = agregarAlCarro.bind(null, producto, "main__carro");
         contPrecio.appendChild(agregarCarro);
         
         //Agrega precio y boton al nuevoDiv
@@ -475,11 +488,140 @@ function recuperarProductos(productos, cadenaCont) {
 }
 
 /**
+ * Agrega a un contenedor indicado por su id, el contenido
+ * de CART__DATA
+ * @param {Element} idContenedor //Div que contendra al carro
+ * @param {Element} idTotal //Div que contendra al texto con el total
+ */
+function recuperarCarro(idContenedor, idTotal) {
+  if (idContenedor != null) {
+    var divPrincipal = document.getElementById(idContenedor);
+    eliminarHijos(divPrincipal);
+    var cantProductos = CART__DATA.productos.length;
+    var moneda = document.getElementById("pesosTotal").checked;
+    if (cantProductos > 0) {
+      for (var i = 0; i < cantProductos; i++) {
+        var producto = CART__DATA.productos[i];
+        //Div donde se almacenara toda la info del producto
+        var nuevoDiv = document.createElement("div");
+        nuevoDiv.classList.add("producto__carro"); 
+        nuevoDiv.classList.add("borde__inactivo");
+        divPrincipal.appendChild(nuevoDiv);
+
+        //Crea elemento <img>
+        var image = document.createElement("img");
+        image.classList.add("producto__icon__carro");
+        image.src = producto.icono;
+        nuevoDiv.appendChild(image);
+
+        //Conteneodr de titulo y enlace
+        var tituloDiv = document.createElement("div");
+        tituloDiv.classList.add("producto__titulo__carro");
+        nuevoDiv.appendChild(tituloDiv);
+        var titulo = document.createElement("p");
+        titulo.id = "producto__titulo__carro";
+        titulo.textContent = producto.titulo;
+        var enlace = document.createElement("a");
+        enlace.href = producto.ruta;
+        enlace.target = "_blank"
+        enlace.appendChild(titulo);
+        tituloDiv.appendChild(enlace);
+
+        //Contenedor de precio
+        var precioDiv = document.createElement("div");
+        precioDiv.classList.add("producto__precio__carro");
+        var precio = document.createElement("p");
+        if (moneda) {
+          precio.textContent = "AR$ " + dolarAPeso(producto.precio);
+        } else {
+          precio.textContent = "U$D " + producto.precio;
+        }
+        precioDiv.appendChild(precio);
+        nuevoDiv.appendChild(precioDiv); 
+
+        //Creo <div> para botones de aumentar y disminuir unidades
+        var botones = document.createElement("div");
+        botones.classList.add("botones__carro");
+
+        var sumar = document.createElement("button");
+        sumar.classList.add("boton__carro");
+
+        var signomas = document.createElement("p");
+        signomas.textContent= "+";
+        sumar.appendChild(signomas);
+        sumar.onclick = agregarAlCarro.bind(null, producto, idContenedor);
+
+        var restar = document.createElement("button");
+        restar.classList.add("boton__carro");
+        var signomenos = document.createElement("p");
+        signomenos.textContent= "-";
+        restar.appendChild(signomenos);
+        restar.onclick = quitarDelCarro.bind(null, producto.titulo, idContenedor);
+
+        var unidades = document.createElement("input");
+        unidades.disabled = true;
+        unidades.value = "x" +producto.unidades;
+        unidades.classList.add("boton__carro");
+        botones.appendChild(sumar);
+        botones.appendChild(unidades);
+        botones.appendChild(restar);
+        nuevoDiv.appendChild(botones);
+      }
+    } else {
+      //Contenedor de carro vacio
+      var  vacioDiv= document.createElement("div");
+      vacioDiv.classList.add("div__vacio");
+      vacioDiv.classList.add("borde__activo");
+      divPrincipal.appendChild(vacioDiv);
+
+      var texto = document.createElement("p");
+      texto.classList.add("aviso__vacio"); 
+      texto.textContent = "Sin productos";
+      vacioDiv.appendChild(texto);
+    }
+    var pTotal = document.getElementById(idTotal);
+    var total = (CART__DATA.total).toFixed(2);
+    if (moneda) {
+      total = dolarAPeso(total);
+      pTotal.textContent = "AR$ " + total;
+    } else {
+      pTotal.textContent = "U$D " + total
+    }
+  }
+}
+
+/**
+ * Recupera las unidades en el carro desde 
+ * CART__DATA a un input con idInput
+ * @param {String} idInput //Donde se cargara el dato
+ */
+function recuperarCarroUnidades(idInput) {
+  actualizarUnidades();
+  var elementoInput = document.getElementById(idInput);
+  elementoInput.value = CART__DATA.unidades;
+}
+
+/**
+ * Actualiza unidades de CART__DATA
+ */
+function actualizarUnidades() {
+  var unidades = 0;
+  var cantidadProductos = CART__DATA.productos.length;
+  for (var i = 0; i < cantidadProductos; i++) {
+    var productoActual = CART__DATA.productos[i];
+    unidades = productoActual.unidades + unidades;
+  }
+  CART__DATA.unidades = unidades;
+  actualizarLocalStorage("CART__DATA", CART__DATA);
+}
+
+/**
  * Agrega unidad del producto ingresado al carro, aumentando el 
- * precio total de compra (U$D)
+ * precio total de compra (U$D), lo agrega al carro visual si
+ * es dado un idCarro, el mismo puede ser null
  * @param {Array} producto 
  */
-function agregarAlCarro(producto) {
+function agregarAlCarro(producto, idCarro) {
   var i = 0;
   var encontrado = false;
   while (i < CART__DATA.productos.length && !encontrado) {
@@ -506,16 +648,66 @@ function agregarAlCarro(producto) {
   CART__DATA.total +=  producto.precio;
   //Aplica cambios
   actualizarLocalStorage("CART__DATA", CART__DATA);
-  recuperarCarro("main__carro", "main__carro__total");
+  if (idCarro != null) {
+    recuperarCarro(idCarro, idCarro+"__total");
+  }
 }
 
+/**
+ * Realiza lo mismo que agregarAlCarro pero usando el 
+ * titulo, ve si el producto existe y luego intenta 
+ * agregarlo al localStorage, idCarro puede ser null
+ * @param {String} titulo //Titulo a agregar
+ */
+function agregarAlCarroTitulo(titulo, idCarro) {
+  var producto = buscarProductoTitulo(titulo);
+  if (producto != null) {
+    agregarAlCarro(producto, idCarro);
+  }
+}
+
+/**
+ * Busca un producto por su titulo en PRODUCTS__DATA,
+ * si lo encuentra, lo retorna
+ * @param {String} titulo //Titulo a buscar
+ */
+function buscarProductoTitulo(titulo) {
+  var producto = null;
+  if (titulo != "" && titulo != null) {
+    var encontrado = false;
+    //Busca titulo en arreglo de soft
+    var i = 0;
+    var cantSoftware = PRODUCTS__DATA.software.length;
+    while (i < cantSoftware && !encontrado) {
+      encontrado = (PRODUCTS__DATA.software[i].titulo == titulo);
+      if (encontrado) {
+        producto = PRODUCTS__DATA.software[i];
+      }
+      i++;
+    }
+
+    if (!encontrado) {
+      //Si no se encontro, lo busca en el arreglo de merch
+      var cantMerchandising = PRODUCTS__DATA.merchandising.length;
+      i = 0;
+      while (i < cantMerchandising && !encontrado) {
+        encontrado = (PRODUCTS__DATA.merchandising[i].titulo == titulo);
+        if (encontrado) {
+          producto = PRODUCTS__DATA.merchandising[i];
+        }
+        i++;
+      }
+    }
+  }
+  return producto;
+}
 
 /**
  * Quita unidad del carro de un producto con titulo ingresado
  * si es que se encuentra, y disminuye el total de la compra (U$D)
  * @param {String} titulo 
  */
-function quitarDelCarro(titulo) {
+function quitarDelCarro(titulo, idCarro) {
   var i = 0;
   var encontrado = false;
   while (i < CART__DATA.productos.length && !encontrado) {
@@ -534,84 +726,31 @@ function quitarDelCarro(titulo) {
   }
   //Aplica cambios
   actualizarLocalStorage("CART__DATA", CART__DATA);
-  recuperarCarro("main__carro", "main__carro__total");
+  recuperarCarro(idCarro, idCarro+"__total");
 }
 
 /**
- * Agrega a un contenedor indicado por su id, el contenido
- * de CART__DATA
+ * Simula realizar la compra del carro cargado
+ * @param {String} idCarro //Id del contenedor de productos
  */
-function recuperarCarro(idContenedor, idTotal) {
-  var divPrincipal = document.getElementById(idContenedor);
-  eliminarHijos(divPrincipal);
-
-  var moneda = document.getElementById("pesosTotal").checked;
-  for (var i = 0; i < CART__DATA.productos.length; i++) {
-    var producto = CART__DATA.productos[i];
-    var nuevoDiv = document.createElement("div");
-    nuevoDiv.classList.add("producto__carro"); 
-    nuevoDiv.classList.add("borde__inactivo");
-    divPrincipal.appendChild(nuevoDiv);
-
-    //Conteneodr de titulo e icon
-    var tituloDiv = document.createElement("div");
-    tituloDiv.classList.add("producto__titulo__carro");
-    nuevoDiv.appendChild(tituloDiv);
-
-    //Creo <div> para botones de aumentar y disminuir unidades
-    var botones = document.createElement("div");
-    botones.classList.add("botones__carro");
-    var sumar = document.createElement("button");
-    sumar.classList.add("boton__carro");
-    var signomas = document.createElement("p");
-    signomas.textContent= "+";
-    sumar.appendChild(signomas);
-    sumar.onclick = agregarAlCarro.bind(null, producto);
-    var restar = document.createElement("button");
-    restar.classList.add("boton__carro");
-    var signomenos = document.createElement("p");
-    signomenos.textContent= "-";
-    restar.appendChild(signomenos);
-    restar.onclick = quitarDelCarro.bind(null, producto.titulo);
-    var unidades = document.createElement("input");
-    unidades.disabled = true;
-    unidades.value = producto.unidades;
-    unidades.classList.add("boton__carro");
-    botones.appendChild(sumar);
-    botones.appendChild(unidades);
-    botones.appendChild(restar);
-    nuevoDiv.appendChild(botones);
-
-    //Crea elemento <img>
-    var image = document.createElement("img");
-    image.classList.add("producto__icon__carro");
-    image.src = producto.icono;
-    tituloDiv.appendChild(image);
-
-    var titulo = document.createElement("p");
-    titulo.id = "producto__titulo__carro";
-    titulo.textContent = producto.titulo;
-    tituloDiv.appendChild(titulo);  
-    
-    var precio = document.createElement("p");
-    if (moneda) {
-      precio.textContent = "AR$ " + dolarAPeso(producto.precio);
-    } else {
-      precio.textContent = "U$D " + producto.precio;
-    }
-    
-    nuevoDiv.appendChild(precio); 
+function comprarCarro(idCarro) {
+  if(prompt("Ingrese su correo electronico para enviar sus productos: ",'example@blackmesa.com')) {
+    vaciarCarro(idCarro);
+    alert("¡Compra realizada con exito! Pronto recibira sus productos.");
   }
-  var pTotal = document.getElementById(idTotal);
-  var total;
-  if (moneda) {
-    total = dolarAPeso(CART__DATA.total);
-    pTotal.textContent = "AR$ " + total;
-  } else {
-    total = (CART__DATA.total).toFixed(2);
-    pTotal.textContent = "U$D " + total
-  }
-  
+  recuperarCarro(idCarro, idCarro+"__total");
+}
+
+/**
+ * Vacia el carro de compras
+ * @param {String} idCarro //Id del contenedor de productos
+ */
+function vaciarCarro(idCarro) {
+  eliminarHijos(document.getElementById(idCarro));
+  CART__DATA.productos = [];
+  CART__DATA.total = 0;
+  actualizarLocalStorage("CART__DATA", CART__DATA);
+  recuperarCarro(idCarro, idCarro+"__total");
 }
 
 /**
@@ -696,7 +835,7 @@ function comparaStrings(cadenaA, cadenaB) {
  * @param {Number} valor 
  */
 function dolarAPeso(valor) {
-  var resultado = (valor * 256.45).toFixed(2);
+  var resultado = (valor * 256).toFixed(2);
   return resultado;
 }
 
@@ -715,5 +854,47 @@ function eliminarHijosMain() {
 function eliminarHijos(contenedor) {
   while (contenedor.firstChild) {
     contenedor.removeChild(contenedor.firstChild);
+  }
+}
+
+
+/**
+ * Carga los respectivos datos a la pagina actual
+ * de producto, segun su titulo
+ * @param {String} titulo //Producto a cargar
+ */
+function recuperaProducto(titulo) {
+  var producto = buscarProductoTitulo(titulo);
+  if (producto) {
+    var portadaDiv = document.getElementById("producto__portada");
+    portadaDiv.src = producto.portada;
+    var descripcionP = document.getElementById("producto__descripcion");
+    descripcionP.textContent = producto.descripcion;
+    var pesosP = document.getElementById("producto__precio__pesos");
+    var dolaresP = document.getElementById("producto__precio__dolares");
+    var precioDolares = producto.precio;
+    pesosP.textContent = "AR$ " + dolarAPeso(precioDolares);
+    dolaresP.textContent = "U$D " + (precioDolares).toFixed(2);
+    var imagenes = producto.imagenes;
+    var cantImagenes = imagenes.length;
+    if (cantImagenes > 0) {
+      var imgDiv = document.getElementById("producto__imagenes");
+      for (var i = 0; i < cantImagenes; i++) {
+        var imagenActual = imagenes[i];
+        var imagenDiv = document.createElement("div");
+        imagenDiv.classList.add("producto__imagen");
+        var imagen = document.createElement("img");
+        imagen.src = imagenActual;
+        var enlace = document.createElement("a");
+        enlace.href = imagenActual;
+        enlace.target = "_blank"
+        enlace.appendChild(imagen);
+        imagenDiv.appendChild(enlace);
+
+        imgDiv.appendChild(imagenDiv);
+      }
+    }
+    
+
   }
 }

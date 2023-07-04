@@ -10,15 +10,39 @@
             margin: 2em auto 2em auto;
             display: flex;
             align-items: center;
-            width: 100vh;
+            width: 90vw;
         }
 
         #main__principal .div__cargado {
-            width: 60vh;
+            width: 60vw;
         }
 
         .main__titulo h1 {
             margin: 0.5em;
+        }
+
+        .div__cargado {
+            width: 100%;
+        }
+
+        .div__cargado a {
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        .div__cargado a:hover {
+            color: orange;
+        }
+        
+        .div__cargado img {
+            margin: 15px;
+            width: 100px;
+            height: 100px;
+            border-top: 2px #737770 solid;
+            border-left: 2px #737770 solid;
+            border-bottom: 2px #31382a solid;
+            border-right:  2px #31382a solid;
+            background-color: #4c5844;
         }
 
     </style>
@@ -47,6 +71,7 @@
                 </form>
             </div>
             <div class="navtop__cart">
+                <input id="main__carro__unidades" type="text" disabled>
                 <a href="carro.html"><img src="../images/carticon.png"></a>
             </div>
             <div class="navtop__myprofile">

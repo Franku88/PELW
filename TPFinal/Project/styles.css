@@ -39,6 +39,41 @@ body {
     
 }
 
+button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+button:active {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    border-top: 2px #31382a solid;
+    border-left: 2px #31382a solid;
+    border-bottom: 2px #737770 solid;
+    border-right: 2px #737770 solid;
+    
+}
+
+input[type="radio"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: wheat;
+    margin-right: 5px;
+}
+
+input[type="radio"]:checked {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: orange;
+    margin-right: 5px;
+}
+
 a {
     color: #d3d5d1;
     text-decoration: none;
@@ -152,12 +187,28 @@ a:hover {
 }
 
 .navtop__cart {
-    margin: 1em;
+    height: 3em;
+    width: 3em;
+    margin: 0;
 }
 
 .navtop__cart img {
-    height: 30px;
+    height: 35px;
     width: auto;
+}
+
+#main__carro__unidades {
+    position: absolute;
+    margin: 0 0 0 22px;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: crimson;
+    border-top: 2px #737770 solid;
+    border-left: 2px #737770 solid;
+    border-bottom: 2px #31382a solid;
+    border-right:  2px #31382a solid;
 }
 
 .navtop__myprofile {
@@ -239,12 +290,11 @@ a:hover {
 }
 
 
-
-
 /*Contenido*/
 
 p {
     margin: 1em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 h1 {
@@ -252,7 +302,7 @@ h1 {
 }
 
 h1, h2, h3 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     margin: 0.5em;
 }
 
@@ -266,8 +316,6 @@ h1, h2, h3 {
 }
 
 main {
-    width: 90vw;
-
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -286,6 +334,13 @@ main {
     align-items: center;
     justify-content: space-between;
 }
+
+.div__vacio {
+    height: min-content;
+    text-align: center;
+}
+
+
 
 .producto__link {
     display: flex;

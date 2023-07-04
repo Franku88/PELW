@@ -30,6 +30,7 @@
         }
 
         main button {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             border-top: 2px #737770 solid;
             border-left: 2px #737770 solid;
             border-bottom: 2px #31382a solid;
@@ -42,12 +43,11 @@
             border-left: 2px #31382a solid;
             border-bottom: 2px #737770 solid;
             border-right: 2px #737770 solid;
-            background-color: #3f4737;
         }
 
         .main__carro {
-            width: 32.5%;
-            height: 76%;
+            width: 20%;
+            max-height: 76%;
         }
 
         #main__contenedor__carro {
@@ -62,7 +62,7 @@
         #main__carro {
             height: 80%;
             width: 90%;
-            overflow: auto;
+            overflow-y: scroll;
         }
 
         #main__carro::-webkit-scrollbar {
@@ -113,7 +113,6 @@
         }
 
         .inputs__horizontal input{
-            width: fit-content;
             margin: 0;
         }
 
@@ -121,24 +120,34 @@
             display: flex;
             align-items: center;
             height: fit-content;
+            width: 100%;
             justify-content: space-between;
             text-align: center;
         }
 
         .producto__carro p {
-            margin: 5px;
-            width: fit-content;
+            font-size: small;
+            margin: 2px;
         }
 
         .producto__carro img {
             height: 50px;
             width: 50px;
+            margin: 1px;
+            border-top: 2px #31382a solid;
+            border-left: 2px #31382a solid;
+            border-bottom: 2px #737770 solid;
+            border-right: 2px #737770 solid;
+            background-color: #3f4737;
         }
         
         .botones__carro {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 25px;
+            margin-top: 1px;
+            margin-bottom: 1px;
         }
 
         .botones__carro input {
@@ -152,10 +161,10 @@
             flex-direction: column;
             align-items: center;
             overflow: hidden;
-            padding:0;
+            padding: 0;
             height: 20px;
             width: 20px;
-            
+            margin-left: auto;
         }
 
         .boton__carro p {
@@ -165,16 +174,50 @@
         .producto__titulo__carro {
             display: flex;
             align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .producto__precio__carro {
+            display: flex;
+            align-items: center;
         }
 
         #producto__titulo__carro {
-            margin: 10px;
+            font-weight: bold;
+            height: fit-content;
+        }
+
+        #producto__titulo__carro:hover {
+            color: orange;
+        }
+
+        .botones__compra {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .boton__compra {
+            background-color: goldenrod;
+            font-weight: bold;
+            color: #31382a;
+            margin: 5px;
+        }
+
+        .boton__vaciar {
+            background-color: crimson;
+            font-weight: bold;
+            color: whitesmoke;
+            margin: 5px;
         }
 
         .main__contenedor {
             display: flex;
             justify-content: space-between;
-            width: 65%;
+            width: 78.3%;
         }
 
         .main__productos {
@@ -191,13 +234,12 @@
             width: 100%;
         }
 
-        .div__cargado a {
+        .div__cargado a p{
             font-family:Arial, Helvetica, sans-serif;
-            font-size: xx-large;
             font-weight: bold;
         }
 
-        .div__cargado a:hover {
+        .div__cargado a p:hover {
             color: orange;
         }
         
@@ -229,6 +271,10 @@
 
         .producto__agregar__carro {
             width: max-content;
+            background-color: wheat;
+            font-weight: bold;
+            color: #31382a;
+            margin: 5px;
         }
 
         .busqueda__filtros {
@@ -288,6 +334,7 @@
                 </form>
             </div>
             <div class="navtop__cart">
+                <input id="main__carro__unidades" type="text" disabled>
                 <a href="carro.html"><img src="../images/carticon.png"></a>
             </div>
             <div class="navtop__myprofile">
@@ -308,7 +355,7 @@
                 <h2> Carro </h2>
             </div>
             <div id="main__carro" class="borde__activo">
-                <!--- Aqui se veran los productos a comprar --->
+                <!--- Aqui se cargaran los productos a comprar --->
             </div>
             <div id="main__carro__resumen">
                 <div class="borde__activo main__carro__total">
@@ -329,6 +376,10 @@
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="botones__compra">
+                <button class="boton__vaciar" onclick="vaciarCarro('main__carro');">Vaciar carro</button>
+                <button class="boton__compra" onclick="redirigir('carro.html');">Verificar compra</button>
             </div>
         </div>
         <div class="main__contenedor borde__inactivo">

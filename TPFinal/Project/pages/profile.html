@@ -162,6 +162,7 @@
                 </form>
             </div>
             <div class="navtop__cart">
+                <input id="main__carro__unidades" type="text" disabled>
                 <a href="carro.html"><img src="../images/carticon.png"></a>
             </div>
             <div class="navtop__myprofile">
@@ -265,7 +266,7 @@
                 document.getElementById("pais").value = PROFILE__DATA.pais;
                 document.getElementById("birthdate").value = PROFILE__DATA.birthdate;
                 document.getElementById("descripcion").value = PROFILE__DATA.descripcion;
-                recuperarFotoPerfil(document.getElementById("profile__image"));    
+                recuperarFotoPerfil("profile__image");    
             }
         }
 
@@ -321,10 +322,14 @@
         }
 
 
-        function guardarNuevaImagenPerfil(idInput) {
+        /**
+         * Guarda ruta de nueva imagen de perfil en localStorage
+         * @param idInput //Inpit desde donde se obtiene el nombre del archivo
+         */
+         function guardarNuevaImagenPerfil(idInput) {
             var ruta = obtenerRutaFile(idInput);
             PROFILE__DATA.fotoPerfil = ruta;
-            localStorage.setItem("PROFILE__DATA", JSON.stringify(PROFILE__DATA));
+            actualizarLocalStorage("PROFILE__DATA", PROFILE__DATA);
             location.reload();
         }
 
@@ -352,4 +357,3 @@
 </body>
 
 </html>
-

@@ -5,6 +5,60 @@
     <link rel="stylesheet" href="../styles.css">
     <script src="../scripts.js"></script>
     <title> Black Mesa &#174;</title>
+    <style>
+        main {
+            width: 100% ;
+            height: 100%vh;
+            padding: 0;
+            overflow: hidden;
+            background-color: #06090E;
+            border-top: 2px #31382a solid;
+            border-left: 2px #31382a solid;
+            border-bottom: 2px #737770 solid;
+            border-right: 2px #737770 solid;
+        }
+
+        .main__principal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main__titulo {
+            background-color: #06090E;
+            border-top: 2px #737770 solid;
+            border-left: 2px #737770 solid;
+            border-bottom: 2px #31382a solid;
+            border-right:  2px #31382a solid;
+
+            text-align: center;
+            height: fit-content;
+            width: 20em;
+            position: absolute;
+            margin: 4.7em 4.8em 5em 26.5em;
+            padding: 0;
+            font-size: xx-large;
+        }
+
+        .main__titulo h1 {
+            color: wheat;
+            -webkit-text-stroke: black 1px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .boton__catalogo {
+            width: 20em;
+            height: 5em;
+            position:absolute;
+            margin: 36em 2em 0em 0em;
+            background-color: #06090E;
+            font-size: large;
+            font-weight: bold;
+            color: wheat;
+            
+        }
+
+    </style>
 </head>
 <body>
 
@@ -30,6 +84,7 @@
                 </form>
             </div>
             <div class="navtop__cart">
+                <input id="main__carro__unidades" type="text" disabled>
                 <a href="carro.html"><img src="../images/carticon.png"></a>
             </div>
             <div class="navtop__myprofile">
@@ -43,33 +98,20 @@
         </nav>
     </header>
 
-    <main class="borde__inactivo">
-        <div id="main__principal">
-            <div class="sidebar__top borde__activo"> 
-                <p> 
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit, magna dapibus eleifend per euismod tempus porta, quam inceptos duis elementum conubia habitant. Sollicitudin bibendum ut ante volutpat nascetur per vel iaculis, ac venenatis netus lacus mi justo hendrerit eleifend id, himenaeos torquent curabitur feugiat dictumst nibh dictum. Luctus urna ullamcorper mauris nec curae fames bibendum malesuada dictumst, posuere volutpat ligula cum habitasse nunc sem torquent.
-                </p>
+
+    <main>
+        <div>
+            <div class="main__titulo">
+                <h1>BLACK MESA&#174</h1>
             </div>
-            <div class="sidebar__left borde__activo">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti provident nihil quae exercitationem saepe aliquam, doloribus debitis rem fugit, placeat, repellendus sapiente deleniti. Dolorum id iste, culpa repudiandae quibusdam necessitatibus?
-                </p>
+            <div id="main__principal">
+                <img class="imagen__fondo" src="/TPFinal/Project/images/indexfondo.gif">
             </div>
-            <div class="main__content borde__activo">
-                <p>
-                    Ut dis convallis mi faucibus interdum dignissim quisque pellentesque hendrerit sem felis leo habitasse dui vestibulum, cras est tortor nibh turpis at pharetra metus neque fringilla fusce egestas molestie. Rutrum metus justo vel senectus ultrices aliquam curabitur fames bibendum sociis, netus elementum eget egestas luctus felis tortor sagittis enim. Mauris nisl dictumst lectus lacinia elementum nascetur cubilia litora ultricies, eleifend congue neque accumsan aptent posuere porttitor consequat velit eros, vulputate porta laoreet facilisi fusce nam proin faucibus. Hendrerit sapien velit auctor curabitur lacus primis nullam, est inceptos elementum vel fames suscipit per, leo tempor morbi commodo ad eleifend. 
-                </p>
-            </div>
-            <div class="sidebar__right borde__activo">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quae? A, aliquid provident saepe id qui neque ex alias maiores ab deleniti reiciendis ut animi odio. Quo ipsa dolores in.
-                </p>
-            </div>
-            <div class="sidebar__bottom borde__activo">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate dolore, minima eum laborum eos odit at porro quidem et impedit quam, dolorem quasi. Nemo quod assumenda dolorum, at voluptatum magni.</p>
-            </div>
-        </div> 
+        </div>
+        <button class="boton__catalogo" onclick="redirigir('catalogo.html')"> Explora la tienda </button>
     </main>
+    
+
 
     <footer class="borde__inactivo"> 
         <nav class="navbot">
