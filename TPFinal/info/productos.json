@@ -1,0 +1,357 @@
+{
+    "software": [
+        {
+            "titulo": "Portal 2",
+            "ruta": "/pages/products/games/portal2/portal2.html",
+            "icono": "/pages/products/games/portal2/game.gif",
+            "portada": "/pages/products/games/portal2/header.png",
+            "precio": 9.99,
+            "etiquetas": [
+                "puzzles",
+                "fps"
+            ],
+            "descripcion": "¡La «Iniciativa de Prueba Perpetua» se ha ampliado, permitiéndote ahora diseñar puzles cooperativos para ti y tus amigos!",
+            "imagenes": [
+                "/pages/products/games/portal2/img0.jpg",
+                "/pages/products/games/portal2/img1.jpg",
+                "/pages/products/games/portal2/img2.jpg",
+                "/pages/products/games/portal2/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Dark Souls: Prepare To Die Edition",
+            "ruta": "/pages/products/games/darksouls/darksouls.html",
+            "icono": "/pages/products/games/darksouls/game.gif",
+            "portada": "/pages/products/games/darksouls/header.png",
+            "precio": 19.99,
+            "etiquetas": [
+                "rpg",
+                "medieval"
+            ],
+            "descripcion": "Dark Souls pondrá a prueba tu habilidad como pocos juegos este año: te pasarás días jugando ya que el nivel de dificultad es muy elevado.",
+            "imagenes": [
+                "/pages/products/games/darksouls/img0.jpg",
+                "/pages/products/games/darksouls/img1.jpg",
+                "/pages/products/games/darksouls/img2.jpg",
+                "/pages/products/games/darksouls/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Dota 2",
+            "ruta": "/pages/products/games/dota2/dota2.html",
+            "icono": "/pages/products/games/dota2/game.png",
+            "portada": "/pages/products/games/dota2/header.png",
+            "precio": 6.66,
+            "etiquetas": [
+                "moba",
+                "estrategia"
+            ],
+            "descripcion": "Cada día, millones de jugadores de todo el mundo entran en batalla como uno de los más de cien héroes de Dota. Y no importa si es su décima hora de juego o la milésima, siempre hay algo nuevo que descubrir.",
+            "imagenes": [
+                "/pages/products/games/dota2/img0.jpg",
+                "/pages/products/games/dota2/img1.jpg",
+                "/pages/products/games/dota2/img2.jpg",
+                "/pages/products/games/dota2/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "The Elder Scrolls V: Skyrim",
+            "ruta": "/pages/products/games/skyrim/skyrim.html",
+            "icono": "/pages/products/games/skyrim/game.png",
+            "portada": "/pages/products/games/skyrim/header.png",
+            "precio": 19.99,
+            "etiquetas": [
+                "rpg",
+                "medieval"
+            ],
+            "descripcion": "El nuevo capítulo de la esperadísima saga Elder Scrolls llega de la mano de los creadores de los Juegos del Año 2006 y 2008, Bethesda Game Studios. Skyrim reinventa y el revoluciona el épico universo de fantasía, dando vida a un completo mundo virtual para que puedas explorarlo de la forma que quieras.",
+            "imagenes": [
+                "/pages/products/games/skyrim/img0.jpg",
+                "/pages/products/games/skyrim/img1.jpg",
+                "/pages/products/games/skyrim/img2.jpg",
+                "/pages/products/games/skyrim/img3.jpg"
+            ]
+
+        },
+        {
+            "titulo": "Mortal Kombat 11",
+            "ruta": "/pages/products/games/mk11/mk11.html",
+            "icono": "/pages/products/games/mk11/game.png",
+            "portada": "/pages/products/games/mk11/header.png",
+            "precio": 49.99,
+            "etiquetas": [
+                "lucha"
+            ],
+            "descripcion": "Mortal Kombat ha regresado mejor que nunca en esta entrega de la icónica saga.",
+            "imagenes": [
+                "/pages/products/games/mk11/img0.jpg",
+                "/pages/products/games/mk11/img1.jpg",
+                "/pages/products/games/mk11/img2.jpg",
+                "/pages/products/games/mk11/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "The Binding of Isaac: Rebirth",
+            "ruta": "/pages/products/games/tboir/tboir.html",
+            "icono": "/pages/products/games/tboir/game.gif",
+            "portada": "/pages/products/games/tboir/header.png",
+            "precio": 14.99,
+            "etiquetas": [
+                "roguelike",
+                "indie",
+                "retro"
+            ],
+            "descripcion": "Cuando la madre de Isaac comienza a escuchar la voz de Dios exiguiendole que haga un sacrificio para probar su fe, Isaac escapa al sótano y se enfrenta a multitudes de enemigos trastornados, hermanos y hermanas perdidos, sus miedos y, finalmente, a su madre.",
+            "imagenes": [
+                "/pages/products/games/tboir/img0.jpg",
+                "/pages/products/games/tboir/img1.jpg",
+                "/pages/products/games/tboir/img2.jpg",
+                "/pages/products/games/tboir/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Garry's Mod",
+            "ruta": "/pages/products/games/gmod/gmod.html",
+            "icono": "/pages/products/games/gmod/game.png",
+            "portada": "/pages/products/games/gmod/header.png",
+            "precio": 9.99,
+            "etiquetas": [
+                "sandbox"
+            ],
+            "descripcion": "Garry's Mod es un sandbox de fisicas. No hay metas predefinidas. Nosotros te damos las herramientas y te dejamos jugar.",
+            "imagenes": [
+                "/pages/products/games/gmod/img0.jpg",
+                "/pages/products/games/gmod/img1.jpg",
+                "/pages/products/games/gmod/img2.jpg",
+                "/pages/products/games/gmod/img3.jpg"
+            ]
+
+        },
+        {
+            "titulo": "Counter Strike: Global Offensive",
+            "ruta": "/pages/products/games/csgo/csgo.html",
+            "icono": "/pages/products/games/csgo/game.png",
+            "portada": "/pages/products/games/csgo/header.png",
+            "precio": 29.99,
+            "descripcion": "Counter-Strike: Global Offensive (CS:GO) amplía el juego de acción por equipos del que fue pionero cuando salió hace más de 20 años. CS:GO incluye nuevos mapas, personajes, armas y modos de juego, y ofrece versiones actualizadas del contenido clásico de Counter-Strike (de_dust2, etc.).",
+            "etiquetas": [
+                "fps"
+            ],
+            "imagenes": [
+                "/pages/products/games/csgo/img0.jpg",
+                "/pages/products/games/csgo/img1.jpg",
+                "/pages/products/games/csgo/img2.jpg"
+            ]
+        },
+        {
+            "titulo": "Hotline Miami",
+            "ruta": "/pages/products/games/hotline/hotline.html",
+            "icono": "/pages/products/games/hotline/game.gif",
+            "portada": "/pages/products/games/hotline/header.png",
+            "precio": 9.99,
+            "etiquetas": [
+                "indie", "retro"
+            ],
+            "descripcion": "Hotline Miami es un juego de acción de alto octanaje que rebosa brutalidad es estado puro, violentos tiroteos y demoledores combates cuerpo a cuerpo.",
+            "imagenes": [
+                "/pages/products/games/hotline/img0.jpg",
+                "/pages/products/games/hotline/img1.jpg",
+                "/pages/products/games/hotline/img2.jpg",
+                "/pages/products/games/hotline/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Hatsune Miku: Project DIVA Mega Mix+",
+            "ruta": "/pages/products/games/projectdiva/projectdiva.html",
+            "icono": "/pages/products/games/projectdiva/game.png",
+            "portada": "/pages/products/games/projectdiva/header.png",
+            "precio": 39.39,
+            "etiquetas": [
+                "ritmo"
+            ],
+            "descripcion": "¡Súbete al escenario del primer juego rítmico de Hatsune Miku protagonizado por la estrella pop virtual más famosa del mundo! Disfruta de la gira definitiva de Hatsune Miku. ¡Solo faltas tú!",
+            "imagenes": [
+                "/pages/products/games/projectdiva/img0.jpg",
+                "/pages/products/games/projectdiva/img1.jpg",
+                "/pages/products/games/projectdiva/img2.jpg",
+                "/pages/products/games/projectdiva/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Cruelty Squad",
+            "ruta": "/pages/products/games/crueltysquad/crueltysquad.html",
+            "icono": "/pages/products/games/crueltysquad/game.png",
+            "portada": "/pages/products/games/crueltysquad/header.png",
+            "precio": 19.99,
+            "etiquetas": [
+                "fps", "retro"
+            ],
+            "descripcion": "Un simulador de fantasía de poder inmersivo con elementos de sigilo táctico ambientado en un mundo de basura lleno de aguas residuales.",
+            "imagenes": [
+                "/pages/products/games/crueltysquad/img0.jpg",
+                "/pages/products/games/crueltysquad/img1.jpg",
+                "/pages/products/games/crueltysquad/img2.jpg",
+                "/pages/products/games/crueltysquad/img3.jpg",
+                "/pages/products/games/crueltysquad/img4.jpg"
+            ]
+        },
+        {
+            "titulo": "JoJo's Bizarre Adventure: All-Star Battle R",
+            "ruta": "/pages/products/games/jojo/jojo.html",
+            "icono": "/pages/products/games/jojo/game.png",
+            "portada": "/pages/products/games/jojo/header.png",
+            "precio": 49.99,
+            "etiquetas": [
+                "lucha"
+            ],
+            "descripcion": "La obra maestra de Hirohiko Araki cobra vida en este juego de lucha! ¡Combate contra 50 pintorescos luchadores usando Stands, Hamon y mucho más! ¡Descubre cómo interactúan personajes que no coinciden en la historia cuando se encuentran cara a cara!",
+            "imagenes": [
+                "/pages/products/games/jojo/img0.jpg",
+                "/pages/products/games/jojo/img1.jpg",
+                "/pages/products/games/jojo/img2.jpg",
+                "/pages/products/games/jojo/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Death Stranding Director's Cut",
+            "ruta": "/pages/products/games/deathstranding/deathstranding.html",
+            "icono": "/pages/products/games/deathstranding/game.png",
+            "portada": "/pages/products/games/deathstranding/header.png",
+            "precio": 39.99,
+            "etiquetas": [
+                "sandbox", "simulador"
+            ],
+            "descripcion": " El legendario creador de videojuegos Hideo Kojima nos ofrece una experiencia que desafía a todos los géneros y que, ahora, se amplía con este DIRECTOR’S CUT definitivo. En el futuro, un misterioso evento conocido como Death Stranding ha abierto una puerta entre los vivos y los muertos, lo que lleva a grotescas criaturas del otro mundo deambulen por un planeta en ruinas habitado por una sociedad desolada. En el papel de Sam Bridges, tendrás la misión de llevar esperanza a la humanidad conectando a los últimos supervivientes de unos Estados Unidos arrasados. ¿Podrás volver a unir, paso a paso, un mundo hecho añicos?",
+            "imagenes": [
+                "/pages/products/games/deathstranding/img0.jpg",
+                "/pages/products/games/deathstranding/img1.jpg",
+                "/pages/products/games/deathstranding/img2.jpg",
+                "/pages/products/games/deathstranding/img3.jpg",
+                "/pages/products/games/deathstranding/img4.jpg"
+            ]
+        }
+
+       
+    ],
+    
+    "merchandising": [
+        {
+            "titulo": "Taito Hatsune Miku Spiritale Super Big Plush",
+            "ruta": "/pages/products/merch/mikuplush/mikuplush.html",
+            "icono": "/pages/products/merch/mikuplush/merch.png",
+            "portada": "/pages/products/merch/mikuplush/header.png",
+            "precio": 27.30,
+            "etiquetas": [
+                "peluche"
+            ],
+            "descripcion": "Una importación de Taito. Hatsune Miku se une a la línea Spiritale de peluches grandes. Adorable estilo chibi con su atuendo distintivo. Mide aproximadamente 36 pulgadas de alto. Es el complemento perfecto para la colección de cualquier mega fanático",
+            "imagenes": [
+                "/pages/products/merch/mikuplush/img0.jpg",
+                "/pages/products/merch/mikuplush/img1.jpg",
+                "/pages/products/merch/mikuplush/img2.jpg",
+                "/pages/products/merch/mikuplush/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Isaac Peluche Soft Stuffed",
+            "ruta": "/pages/products/merch/isaacplush/isaacplush.html",
+            "icono": "/pages/products/merch/isaacplush/merch.png",
+            "portada": "/pages/products/merch/isaacplush/header.png",
+            "precio": 8.99,
+            "etiquetas": [
+                "peluche"
+            ],
+            "descripcion": "Material ecofriendly: tamaño: 11.8 pulgadas. Hecho de felpa corta, relleno de algodón PP de alta calidad y tiene costura precisa. El mejor regalo: inspirado en el juego The Binding of Isaac.",
+            "imagenes": [
+                "/pages/products/merch/isaacplush/img0.jpg",
+                "/pages/products/merch/isaacplush/img1.jpg",
+                "/pages/products/merch/isaacplush/img2.jpg",
+                "/pages/products/merch/isaacplush/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "¡Alabado Sea el Sol! Jarra de Cerveza de Madera, Solaire de Astora",
+            "ruta": "/pages/products/merch/dsmug/dsmug.html",
+            "icono": "/pages/products/merch/dsmug/merch.png",
+            "portada": "/pages/products/merch/dsmug/header.png",
+            "precio": 28.99,
+            "etiquetas": [
+                "taza"
+            ],
+            "descripcion": "Las jarras de cerveza de madera son pulidas artificialmente por nuestros artesanos, por lo que la veta, el color, el peso y las especificaciones de la madera pueden tener una pequeña diferencia, además, por esta razón, cada producto de madera es una obra de arte única. Capacidad - 22 onzas. Una adición clásica a cualquier colección, exhibición, pub o bar deportivo. Fabricado en madera de roble natural y matraz de acero inoxidable pulido en el interior. La etiqueta está hecha de cobre.", 
+            "imagenes": [
+                "/pages/products/merch/dsmug/img0.jpg",
+                "/pages/products/merch/dsmug/img1.jpg",
+                "/pages/products/merch/dsmug/img2.jpg",
+                "/pages/products/merch/dsmug/img3.jpg"
+            ]
+        },
+        {
+            "titulo": "Figura Caballero Artorias Caminante del Abismo",
+            "ruta": "/pages/products/merch/artoriasfig/artoriasfig.html",
+            "icono": "/pages/products/merch/artoriasfig/merch.png",
+            "portada": "/pages/products/merch/artoriasfig/header.png",
+            "precio": 160,
+            "etiquetas": [
+                "figura"
+            ],
+            "descripcion": "Estatua de Dark Souls, Figura de Artorias del Abismo de Dark Souls. Hecho a mano. De plata. Altura 12 pulgadas",
+            "imagenes": [
+                "/pages/products/merch/artoriasfig/img0.jpg",
+                "/pages/products/merch/artoriasfig/img1.jpg",
+                "/pages/products/merch/artoriasfig/img2.jpg"
+            ]
+        },
+        {
+            "titulo": "Pistola Portal 2 versión Atlas Dispositivo de mano Aperture Science",
+            "ruta": "/pages/products/merch/portalgun/portalgun.html",
+            "icono": "/pages/products/merch/portalgun/merch.png",
+            "portada": "/pages/products/merch/portalgun/header.png",
+            "precio": 985,
+            "etiquetas": [
+                "coleccionable"
+            ],
+            "descripcion": "Está a punto de comprar la Portal 2 Portal Gun Atlas Ver. Réplica de tamaño completo del dispositivo portátil de portales de Aperture Science. ¡Solo se abrió una vez para una prueba funcional y todo funciona muy bien! (Las pilas no están incluidas). Esta es una mercancía oficial fabricada por NECA.",
+            "imagenes": [
+                "/pages/products/merch/portalgun/img0.jpg",
+                "/pages/products/merch/portalgun/img1.jpg",
+                "/pages/products/merch/portalgun/img2.jpg"
+            ]
+            
+        },
+        {
+            "titulo": "Hotline Miami Jacket Flight Bomber Campera de Universidad",
+            "ruta": "/pages/products/merch/jacket/jacket.html",
+            "icono": "/pages/products/merch/jacket/merch.png",
+            "portada": "/pages/products/merch/jacket/header.png",
+            "precio": 116,
+            "etiquetas": [
+                "ropa"
+            ],
+            "descripcion": "Inspirada en Hotline Miami Flight/Bomber Varsity, Campera de alta calidad.",
+            "imagenes": [
+                "/pages/products/merch/jacket/img0.jpg",
+                "/pages/products/merch/jacket/img1.jpg",
+                "/pages/products/merch/jacket/img2.jpg"
+            ]
+        },
+        {
+            "titulo": "QCK PRISM XL DOTA 2 EDITION",
+            "ruta": "/pages/products/merch/dota2pad/dota2pad.html",
+            "icono": "/pages/products/merch/dota2pad/merch.png",
+            "portada": "/pages/products/merch/dota2pad/header.png",
+            "precio": 69.99,
+            "etiquetas": [
+                "mousepad"
+            ],
+            "descripcion": "Diseño de edicion limitada del campeonato de Dota 2 The Internacional 2011. Iluminacion dinamiga RGB. 900 mm x 300 mm x 4 mm.",
+            "imagenes": [
+                "/pages/products/merch/dota2pad/img0.png",
+                "/pages/products/merch/dota2pad/img1.png",
+                "/pages/products/merch/dota2pad/img2.png",
+                "/pages/products/merch/dota2pad/img3.png"
+            ]
+
+        }
+    ]
+}

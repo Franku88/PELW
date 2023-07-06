@@ -1,0 +1,16 @@
+[
+    {
+        "titulo": "¡Inauguramos Black Mesa!",
+        "ruta": "/pages/news/n1/n1.html",
+        "icono": "/pages/news/n1/img.png",
+        "etiquetas": [""]
+    },
+    {
+        "titulo": "Nuevos juegos",
+        "ruta": "/pages/news/n2/n2.html",
+        "icono": "/pages/news/n2/img.png",
+        "etiquetas": [""]
+    
+    }
+    
+]

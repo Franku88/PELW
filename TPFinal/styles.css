@@ -1,0 +1,353 @@
+* {
+    box-sizing: border-box;
+
+    color: #d3d5d1;
+}
+
+ul * {
+    list-style: none;
+}
+
+
+*::-webkit-scrollbar {
+    width: 0.6em;
+    height: 0.6em;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #3e4637;
+    border-radius: 8px; /*Borde redondeado del scroll*/
+}
+  
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #808080;
+}
+
+*::-webkit-scrollbar-corner {
+    background-color: #31382a;
+}
+
+html {
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+body {
+    font-family: Verdana, Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 80%;
+    background-color: #4c5945;
+    
+}
+
+button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+button:active {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    border-top: 2px #31382a solid;
+    border-left: 2px #31382a solid;
+    border-bottom: 2px #737770 solid;
+    border-right: 2px #737770 solid;
+    
+}
+
+input[type="radio"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: wheat;
+    margin-right: 5px;
+}
+
+input[type="radio"]:checked {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: orange;
+    margin-right: 5px;
+}
+
+a {
+    color: #d3d5d1;
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+/*Encabezado, pie y sus contenidos*/
+
+.borde__activo {
+    border-top: 2px #31382a solid;
+    border-left: 2px #31382a solid;
+    border-bottom: 2px #737770 solid;
+    border-right: 2px #737770 solid;
+    background-color: #3f4737;
+}
+
+.borde__inactivo {
+    border-top: 2px #737770 solid;
+    border-left: 2px #737770 solid;
+    border-bottom: 2px #31382a solid;
+    border-right:  2px #31382a solid;
+    background-color: #4c5844;
+}
+
+.navtop {
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+}
+
+.navtop__links a {
+    font-weight: bold;
+}
+
+.navtop__links a:hover {
+    color: #4c5844;
+    background: #d3d5d1;
+}
+
+.navtop__logo {
+    max-width: 12em;
+    width: auto;
+}
+
+.navtop__logo a { /*Estilo del logo indice*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navtop__logo a:hover {
+    background-color: transparent;
+}
+
+.navtop__icon {
+    width: 40%;
+    height: 40%;
+    margin: 0.5em
+}
+
+.navtop__icontext {
+    margin: 0.5em;
+    width: auto;
+    color: black;
+}
+
+.navtop__links {
+    display: flex;
+    margin: auto 0.5em 0 0.5em;
+}
+
+.navtop__link {
+    margin: 0.5em;
+    padding: 4px;
+}
+
+.navtop__form {
+    margin: 0.5em auto 0.5em auto;
+}
+
+.navtop__form form {
+    display: flex;
+    align-items: center;
+    margin: 0.5em;
+}
+
+.navtop__form .buscar {
+    font-family: inherit;
+    background-color: inherit;
+    height: 2em;
+    /*Borde al seleccionar search*/
+    outline: none; 
+}
+
+.navtop__form .buscar::placeholder {
+    color:inherit;
+}
+
+.navtop__form .buscar::-webkit-search-cancel-button {
+    display: none;
+}
+
+.navtop__form .boton {
+    height: 20px;
+    width: auto;
+    padding: 0 0.5em 0 0.5em;
+}
+
+.navtop__cart {
+    height: 3em;
+    width: 3em;
+    margin: 0;
+}
+
+.navtop__cart img {
+    height: 35px;
+    width: auto;
+}
+
+#main__carro__unidades {
+    position: absolute;
+    margin: 0 0 0 22px;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: crimson;
+    border-top: 2px #737770 solid;
+    border-left: 2px #737770 solid;
+    border-bottom: 2px #31382a solid;
+    border-right:  2px #31382a solid;
+}
+
+.navtop__myprofile {
+    display: flex;
+    align-items: center;
+    margin: 0.5em;
+}
+
+.navtop__myprofile a {
+    margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.navtop__myprofile__text {
+    padding: 3px;
+    border-top: 2px #737770 solid;
+    border-left: 2px #737770 solid;
+    border-bottom: 2px #31382a solid;
+    border-right:  2px #31382a solid;
+    background-color: #4c5844;
+}
+
+.navtop__myprofile__text:hover {
+    border-top: 2px #31382a solid;
+    border-left: 2px #31382a solid;
+    border-bottom: 2px #737770 solid;
+    border-right: 2px #737770 solid;
+    background-color: #3f4737;
+    font-weight:initial;
+}
+
+.navtop__myprofile__img__border {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.navtop__myprofile__img__marco {
+    display: flex;
+    align-items: center;
+    width: 40px;
+}
+
+.navtop__myprofile__img__marco a {
+    width: 40px;
+    margin: 0;
+}
+
+.navtop__myprofile img {
+    width: 40px;
+}
+
+.navbot {
+    margin: 0.2em;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.navbot__links {
+    margin: 2px auto 2px 2px;
+    padding: 6px;
+}
+
+.navbot__link {
+    margin: 5px;
+}
+
+.navbot__iconlinks {
+    margin: 0 0.05em 0 auto;
+    font-size: 1.3em;
+    padding: 4px 2px 2px 2px;
+}
+
+.navbot__iconlinks i {
+    color: #d3d5d1;
+    -webkit-text-stroke: 0.5px orange;
+}
+
+
+/*Contenido*/
+
+p {
+    margin: 1em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    margin: 1em;
+}
+
+h1, h2, h3 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    margin: 0.5em;
+}
+
+.main__titulo {
+    margin: 1em;
+}
+
+.main__titulo h1 {
+    margin: 0.5em;
+
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 2vh auto 2vh auto;
+    padding: 1.5em;
+    
+    overflow-x: scroll;
+}
+
+.div__cargado {
+    margin: 0.5em 0 0.5em 0;
+    padding: 5px;
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.div__vacio {
+    height: min-content;
+    text-align: center;
+}
+
+
+
+.producto__link {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.producto__link p {
+    font-size: medium;
+}
